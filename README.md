@@ -1,2 +1,2 @@
-# admin-panel
-this is a admin panel , by using html , css &amp; javascript
+#shashaikant.com portfolio
+in this portfolio language i use html , css , javascript , php for backend 
