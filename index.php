@@ -28,7 +28,7 @@ $best=$result->fetch_assoc();
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<body class="template-color-1 spybody" data-spy="scroll" data-target=".navbar-example2" data-offset="70">
+<body class="template-color-1 spybody" id="body" data-spy="scroll" data-target=".navbar-example2" data-offset="70">
 
     <!-- Start Header -->
     <header class="rn-header haeder-default black-logo-version header--fixed header--sticky">
@@ -63,7 +63,7 @@ $best=$result->fetch_assoc();
                     </nav>
                     <!-- Start Header Right  -->
                     <div class="header-right">
-                        <a class="rn-btn" href="./index-white-version.html"><span>Light</span></a>
+                    <a class="rn-btn" id="switchTheme"><span>Light</span></a>
                         <div class="hamberger-menu d-block d-xl-none">
                             <i id="menuBtn" class="feather-menu humberger-menu"></i>
                         </div>
@@ -3815,5 +3815,17 @@ $best=$result->fetch_assoc();
     <script src="assets/js/vendor/particles.js"></script>
     <!-- main JS -->
     <script src="assets/js/main.js"></script>
+    <script>
+        document.getElementById("switchTheme").addEventListener("click",(e)=>{
+  if(e.target.outerText === "Light"){
+    document.querySelector("#switchTheme span").innerHTML = "Dark";
+    document.getElementById("body").className = "template-color-1 spybody white-version";
+  }
+  else{
+    document.querySelector("#switchTheme span").innerHTML = "Light";
+    document.getElementById("body").className = "template-color-1 spybody";
+  }
+});
+    </script>
 </body>
 </html>
