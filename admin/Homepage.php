@@ -1,3 +1,31 @@
+<?php
+include("../db.php");
+if(isset($_POST["submit"])){
+  $name = $_POST["name"];
+  $title = $_POST["title"];
+  $des = $_POST["des"];
+  $result=$con->query("UPDATE info SET name='$name', title='$title', description='$des' WHERE id=1");
+  if($result){
+    echo "<script>alert('Updated')</script>";
+  }else{
+    die ($con->error);
+  }
+  $profile=$_FILES["profile"];
+  if(isset($profile["tmp_name"])){
+    move_uploaded_file($profile["tmp_name"], "../assets/images/slider/shashikant.jpg");
+  }
+  $profile=$_FILES["nav"];
+  if(isset($profile["tmp_name"])){
+    move_uploaded_file($profile["tmp_name"], "../assets/images/logo/navbar.png");
+  }
+  $profile=$_FILES["tab"];
+  if(isset($profile["tmp_name"])){
+    move_uploaded_file($profile["tmp_name"], "../assets/images/logo/logo.png");
+  }
+}
+$result= $con->query("SELECT * FROM info");
+$info=$result->fetch_assoc();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,20 +82,20 @@
   </div>
   <div class="form-content">
     <i><h1 class="topic-green">HOMEPAGE</h1></i><br><br>
-      <form action="action_page.php">   
+      <form action="" method="post" enctype="multipart/form-data">   
       
       <label for="username">
       Profile Name:
       </label>
 <br>    
-<input type="text" id="fname" name="fname" width="50" placeholder="Enter Your Profile Name" maxlength="50"><br>
+<input type="text" id="fname" name="name" width="50" value="<?php echo $info['name']; ?>" placeholder="Enter Your Profile Name" maxlength="50"><br>
 <label for="username">
   Browser/title Name:
   </label>
 <br>    
-<input type="text" id="fname" name="fname" width="50" placeholder="Enter Your title Name" maxlength="50"><br>
+<input type="text" id="fname" name="title" width="50" value="<?php echo $info['title']; ?>" placeholder="Enter Your title Name" maxlength="50"><br>
 <label for="telNo">Description:</label>
-<input class="inpt" type="text" name="Name" id="name" placeholder="Description" maxlength="500">
+<input class="inpt" type="text" name="des" id="name" value="<?php echo $info['description']; ?>" placeholder="Description" maxlength="500">
 <div class="dropdown">
 
     <br>
@@ -75,38 +103,40 @@
 
     <label for="avatar">Choose a profile picture:</label>
 
-    <input type="file" name="inpFile" id="inpFile">
+    <input type="file" name="profile" id="inpFile">
     <div class="image-preview" id="imagePreview">
-        <img src="" alt="Image Preview" class="image-preview__image">
-        <span class="image-preview__default-text">Image Preview</span></div>
+        
+        <span class="image-preview__default-text"><img src="../assets/images/slider/shashikant.jpg" alt="Image Preview" style="display: block;" class="image-preview__image"></span></div>
         <br>
 
 
         <br>
        <label for="avatar">Choose a Browser Tab Image:</label>
-       <input type="file" name="inpFile" id="inpfile">
+       <input type="file" name="tab" id="inpfile">
        <div class="image-preview" id="imagepreview">
-           <img src="" alt="Image Preview" class="image-preview__image">
-           <span class="image-preview__default-text">Image Preview</span></div>
+           <span class="image-preview__default-text">
+           <img src="../assets/images/logo/logo.png" alt="Image Preview" style="display: block;" class="image-preview__image">
+           </span></div>
            <br>
 
 
            <label for="avatar">Choose a Nav Bar Image:</label>
-           <input type="file" name="inpFile" class="inpFile">
+           <input type="file" name="nav" class="inpFile">
            <div class="image-preview" class="imagePreview">
-               <img src="" alt="Image Preview" class="image-preview__image">
-               <span class="image-preview__default-text">Image Preview</span></div>
+               <span class="image-preview__default-text">
+               <img src="../assets/images/logo/navbar.png" alt="Image Preview" style="display: block;" class="image-preview__image">
+               </span></div>
 
        
-
-</form><br>
-<br>
-<button type="button" class="button">
+               <button type="submit" class="button" name="submit">
     <span class="button__text">Save</span>
     <span class="button__icon">
       <ion-icon name="cloud-download-outline"></ion-icon>
     </span>
   </button>
+</form><br>
+<br>
+
   <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
 
 <br>

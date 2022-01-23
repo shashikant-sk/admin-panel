@@ -1,13 +1,22 @@
+<?php 
+include('db.php'); 
+$result= $con->query("SELECT * FROM info");
+$info=$result->fetch_assoc();
+$result= $con->query("SELECT * FROM contact");
+$contact=$result->fetch_assoc();
+$result= $con->query("SELECT * FROM bestskills");
+$best=$result->fetch_assoc();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>shashikant</title>
+    <title><?php echo $info["title"]; ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="assets/images/logo/logo-dark.png">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/logo/logo.png">
     <!-- CSS 
     ============================================ -->
     <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
@@ -29,7 +38,7 @@
                 <div class="header-left">
                     <div class="logo">
                         <a href="index.html">
-                            <img src="assets/images/logo/logo.png" width="35%"  alt="logo">
+                            <img src="assets/images/logo/navbar.png" width="35%"  alt="logo">
                         </a>
                     </div>
                 </div>
@@ -78,7 +87,7 @@
             <div class="menu-top">
                 <div class="menu-header">
                     <a class="logo" href="index.html">
-                        <img src="assets/images/logo/logos-circle.png" width="30%" alt="Personal Portfolio">
+                        <img src="assets/images/logo/navbar.png" width="30%" alt="Personal Portfolio">
                     </a>
                     <div class="close-button">
                         <button class="close-menu-activation close"><i data-feather="x"></i></button>
@@ -99,19 +108,19 @@
                 </ul>
                 <!-- social sharea area -->
                 <div class="social-share-style-1 mt--40">
-                    <span class="title">find with me</span>
+                    <span class="title">find me</span>
                     <ul class="social-share d-flex liststyle">
-                        <li class="facebook"><a href="https://www.facebook.com/passion.for.goal/"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook">
+                        <li class="facebook"><a href="<?php echo $contact['fb']; ?>"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook">
                                     <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
                                 </svg></a>
                         </li>
-                        <li class="instagram"><a href="https://www.instagram.com/shashikant_001/"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram">
+                        <li class="instagram"><a href="<?php echo $contact['ig']; ?>"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram">
                                     <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                                     <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                                     <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                                 </svg></a>
                         </li>
-                        <li class="linkedin"><a href="https://www.linkedin.com/in/shashikant-001/"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-linkedin">
+                        <li class="linkedin"><a href="<?php echo $contact['link']; ?>"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-linkedin">
                                     <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
                                     <rect x="2" y="9" width="4" height="12"></rect>
                                     <circle cx="4" cy="4" r="2"></circle>
@@ -139,7 +148,7 @@
                             <div class="content">
                                 <div class="inner">
                                     <span class="subtitle">Welcome to my world</span>
-                                    <h1 class="title">Hi, I’m <span>shashikant </span><br>
+                                    <h1 class="title">Hi, I’m <span><?php echo $info["name"]; ?> </span><br>
                                         <span class="header-caption" id="page-top">
                                             <!-- type headline start-->
                                             <span class="cd-headline clip is-full-width">
@@ -156,15 +165,15 @@
                                     </h1>
 
                                     <div>
-                                        <p class="description">I will help you build your brand and grow your business. I create clarifying strategy, beautiful logo and identity design and engaging websites.
-
+                                        <p class="description">
+                                        <?php echo $info["description"]; ?>
                                         </p>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-6 col-xl-6 col-md-6 col-sm-6 col-12">
                                         <div class="social-share-inner-left">
-                                            <span class="title">find with me</span>
+                                            <span class="title">find me</span>
                                             <ul class="social-share d-flex liststyle">
                                                 <li class="facebook"><a href="https://www.facebook.com/passion.for.goal/"><i data-feather="facebook"></i></a>
                                                 </li>
@@ -179,11 +188,9 @@
                                         <div class="skill-share-inner">
                                             <span class="title">best skill on</span>
                                             <ul class="skill-share d-flex liststyle">
-                                               <a href="https://www.google.com/search?q=html+css+javascript&oq=html+css+javascript&aqs=chrome..69i57j0i512l4j69i60j69i61l2.5929j0j7&sourceid=chrome&ie=UTF-8"><li><img src="assets/images/icons/html css javascript.jpg" href="" alt="Icons Images"></li></a>
-
-                                              <a href="https://wikitia.com/index.php?title=MERN_(solution_stack)&mobileaction=toggle_view_desktop">  <li><img src="assets/images/icons/MERN.jpg" alt="Icons Images"></li></a>
-
-                                                <li><img src="assets/images/icons/photoshop.png" alt="Icons Images"></li>
+                                            <a href="<?php echo $best["link1"];?>"><li><img src="assets/images/bestskills/img1" href="" alt="Icons Images"></li></a>
+                                            <a href="<?php echo $best["link2"];?>"><li><img src="assets/images/bestskills/img2" href="" alt="Icons Images"></li></a>
+                                            <a href="<?php echo $best["link3"];?>"><li><img src="assets/images/bestskills/img3" href="" alt="Icons Images"></li></a>
                                             </ul>
                                         </div>
                                     </div>
@@ -2656,21 +2663,21 @@
                                 <img src="assets/images/contact/contact1.png" alt="contact-img">
                             </div>
                             <div class="title-area">
-                                <h4 class="title">SHASHIKANT</h4>
+                                <h4 class="title"><?php echo $info['name']; ?></h4>
                                 <span>Frontend Developer & Designer</span>
                             </div>
                             <div class="description">
-                                <p>I am available for freelance work with create clarifying strategy & engaging websites. Connect with me via and call in to my account.
+                                <p><?php echo $info['description']; ?>
                                 </p>
-                                <span class="phone">Phone: <a href="tel:+9779845451010">+977 9845451010</a></span>
-                                <span class="mail">Email: <a href="shashikantshah540@gmail.com">shashikantshah540@gmail.com</a></span>
+                                <span class="phone">Phone: <a href="tel:<?php echo $contact['phone']; ?>"><?php echo $contact['phone']; ?></a></span>
+                                <span class="mail">Email: <a href="mailto:<?php echo $contact['email']; ?>"><?php echo $contact['email']; ?></a></span>
                             </div>
                             <div class="social-area">
                                 <div class="name">FIND WITH ME</div>
                                 <div class="social-icone">
-                                    <a href="https://www.facebook.com/passion.for.goal/"><i data-feather="facebook"></i></a>
-                                    <a href="https://www.linkedin.com/in/shashikant-001/"><i data-feather="linkedin"></i></a>
-                                    <a href="https://www.instagram.com/shashikant_001/"><i data-feather="instagram"></i></a>
+                                    <a href="<?php echo $contact['fb']; ?>"><i data-feather="facebook"></i></a>
+                                    <a href="<?php echo $contact['link']; ?>"><i data-feather="linkedin"></i></a>
+                                    <a href="<?php echo $contact['ig']; ?>"><i data-feather="instagram"></i></a>
                                     
                                 </div>
                             </div>

@@ -1,3 +1,31 @@
+<?php
+include("../db.php");
+if(isset($_POST["submit"])){
+  $link1 = $_POST["link1"];
+  $link2 = $_POST["link2"];
+  $link3 = $_POST["link3"];
+  $result=$con->query("UPDATE bestskills SET link1='$link1', link2='$link2', link3='$link3' WHERE id=1");
+  if($result){
+    echo "<script>alert('Updated')</script>";
+  }else{
+    die ($con->error);
+  }
+  $profile=$_FILES["img1"];
+  if(isset($profile["tmp_name"])){
+    move_uploaded_file($profile["tmp_name"], "../assets/images/bestskills/img1.png");
+  }
+  $profile=$_FILES["img2"];
+  if(isset($profile["tmp_name"])){
+    move_uploaded_file($profile["tmp_name"], "../assets/images/bestskills/img2.png");
+  }
+  $profile=$_FILES["img3"];
+  if(isset($profile["tmp_name"])){
+    move_uploaded_file($profile["tmp_name"], "../assets/images/bestskills/img3.png");
+  }
+}
+$result= $con->query("SELECT * FROM bestskills");
+$info=$result->fetch_assoc();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,43 +65,47 @@
   <div class="form-content">
     <i><h1 class="topic-green">BESTSKILLS</h1></i><br><br>
   <div>
+    
+  <form action="" method="Post" enctype="multipart/form-data">
     <label for="avatar">Choose your First Image:</label>
 
-    <input type="file" name="inpFile" id="inpFile">
+    <input type="file" name="img1" id="inpFile">
     <div class="image-preview" id="imagePreview">
-        <img src="" alt="Image Preview" class="image-preview__image">
-        <span class="image-preview__default-text">Image Preview</span></div>
+           <span class="image-preview__default-text">           
+             <img src="../assets/images/bestskills/img1.png" alt="Image Preview" class="image-preview__image">
+</span></div>
+        <br>
+        <label for="telNo">Link 1:</label>
+        <input class="inpt" type="text" name="link1" value="<?php echo $info['link1']; ?>" id="name" placeholder="Enter Your 1st Preferable Link" maxlength="250">
         <br>
        <label for="avatar">Choose your Second Image:</label>
-       <input type="file" name="inpFile" id="inpFile">
+       <input type="file" name="img2" id="inpFile">
        <div class="image-preview" id="imagePreview">
-           <img src="" alt="Image Preview" class="image-preview__image">
-           <span class="image-preview__default-text">Image Preview</span></div>
+           <span class="image-preview__default-text">           
+             <img src="../assets/images/bestskills/img2.png" alt="Image Preview" class="image-preview__image">
+</span></div>
+           <br>
+           <label for="telNo">Link 2:</label>
+           <input class="inpt" type="text" name="link2" id="name" value="<?php echo $info['link2']; ?>" placeholder="Enter Your 2nd Preferable Link" maxlength="250">
            <br>
            <label for="avatar">Choose your Third Image:</label>
-           <input type="file" name="inpFile" id="inpFile">
+           <input type="file" name="img3" id="inpFile">
            <div class="image-preview" id="imagePreview">
-               <img src="" alt="Image Preview" class="image-preview__image">
-               <span class="image-preview__default-text">Image Preview</span></div><br><br>
-               <label for="telNo">Link 1:</label>
-               <input class="inpt" type="text" name="Name" id="name" placeholder="Enter Your 1st Preferable Link" maxlength="250">
-               <br>
-               <label for="telNo">Link 2:</label>
-               <input class="inpt" type="text" name="Name" id="name" placeholder="Enter Your 2nd Preferable Link" maxlength="250">
-               <br>
+           <span class="image-preview__default-text">           
+             <img src="../assets/images/bestskills/img3.png" alt="Image Preview" class="image-preview__image">
+</span></div>
                <label for="telNo">Link 3:</label>
-               <input class="inpt" type="text" name="Name" id="name" placeholder="Enter Your 3rd Preferable Link" maxlength="250">
+               <input class="inpt" type="text" name="link3" id="name" value="<?php echo $info['link3']; ?>" placeholder="Enter Your 3rd Preferable Link" maxlength="250">
                <br>
 
            </div>
-  </form>
-  <br><br>
-  <button type="button" class="button">
+  <button type="submit" name="submit" class="button">
     <span class="button__text">Save</span>
     <span class="button__icon">
       <ion-icon name="cloud-download-outline"></ion-icon>
     </span>
-  </button>
+  </form>
+  <br><br>
   <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
   <br>
   <br>
