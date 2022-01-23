@@ -224,18 +224,20 @@ $best=$result->fetch_assoc();
                     </div>
                 </div>
                 <div class="row row--25 mt_md--10 mt_sm--10">
-
+<?php
+$result=$con->query("SELECT * FROM whatido ORDER BY id");
+while($row=$result->fetch_assoc()){
+?>
                     <!-- Start Single Service -->
                     <div data-aos="fade-up" data-aos-duration="500" data-aos-delay="100" data-aos-once="true" class="col-lg-6 col-xl-4 col-md-6 col-sm-12 col-12 mt--50 mt_md--30 mt_sm--30">
                         <div class="rn-service">
                             <div class="inner">
                                 <div class="icon">
-                                    <i data-feather="menu"></i>
+                                     <i data-feather="<?php echo $row['dataFeather']; ?>"></i>
                                 </div>
                                 <div class="content">
-                                    <h4 class="title"><a href="#">Business Stratagy</a></h4>
-                                    <p class="description">I throw myself down among the tall grass by the stream as I
-                                        lie close to the earth.</p>
+                                    <h4 class="title"><a href="#"><?php echo $row['title']; ?></a></h4>
+                                    <p class="description"><?php echo $row['tagline']; ?></p>
                                     <a class="read-more-button" href="#"><i class="feather-arrow-right"></i></a>
                                 </div>
                             </div>
@@ -243,97 +245,7 @@ $best=$result->fetch_assoc();
                         </div>
                     </div>
                     <!-- End SIngle Service -->
-                    <!-- Start Single Service -->
-                    <div data-aos="fade-up" data-aos-duration="500" data-aos-delay="300" data-aos-once="true" class="col-lg-6 col-xl-4 col-md-6 col-sm-12 col-12 mt--50 mt_md--30 mt_sm--30">
-                        <div class="rn-service">
-                            <div class="inner">
-                                <div class="icon">
-                                    <i data-feather="book-open"></i>
-                                </div>
-                                <div class="content">
-                                    <h4 class="title"><a href="#">App Development</a></h4>
-                                    <p class="description"> It uses a dictionary of over 200 Latin words, combined with
-                                        a handful of model sentence.</p>
-                                    <a class="read-more-button" href="#"><i class="feather-arrow-right"></i></a>
-                                </div>
-                            </div>
-                            <a class="over-link" href="#"></a>
-                        </div>
-                    </div>
-                    <!-- End SIngle Service -->
-                    <!-- Start Single Service -->
-                    <div data-aos="fade-up" data-aos-duration="500" data-aos-delay="500" data-aos-once="true" class="col-lg-6 col-xl-4 col-md-6 col-sm-12 col-12 mt--50 mt_md--30 mt_sm--30">
-                        <div class="rn-service">
-                            <div class="inner">
-                                <div class="icon">
-                                    <i data-feather="tv"></i>
-                                </div>
-                                <div class="content">
-                                    <h4 class="title"><a href="#">App Development</a></h4>
-                                    <p class="description">I throw myself down among the tall grass by the stream as I
-                                        lie close to the earth.</p>
-                                    <a class="read-more-button" href="#"><i class="feather-arrow-right"></i></a>
-                                </div>
-                            </div>
-                            <a class="over-link" href="#"></a>
-                        </div>
-                    </div>
-                    <!-- End SIngle Service -->
-                    <!-- Start Single Service -->
-                    <div data-aos="fade-up" data-aos-duration="500" data-aos-delay="100" data-aos-once="true" class="col-lg-6 col-xl-4 col-md-6 col-sm-12 col-12 mt--50 mt_md--30 mt_sm--30">
-                        <div class="rn-service">
-                            <div class="inner">
-                                <div class="icon">
-                                    <i data-feather="twitch"></i>
-                                </div>
-                                <div class="content">
-                                    <h4 class="title"><a href="#">Mobile App</a></h4>
-                                    <p class="description">There are many variations of passages of Lorem Ipsum
-                                        available, but the majority.
-                                    </p>
-                                    <a class="read-more-button" href="#"><i class="feather-arrow-right"></i></a>
-                                </div>
-                            </div>
-                            <a class="over-link" href="#"></a>
-                        </div>
-                    </div>
-                    <!-- End SIngle Service -->
-                    <!-- Start Single Service -->
-                    <div data-aos="fade-up" data-aos-duration="500" data-aos-delay="300" data-aos-once="true" class="col-lg-6 col-xl-4 col-md-6 col-sm-12 col-12 mt--50 mt_md--30 mt_sm--30">
-                        <div class="rn-service">
-                            <div class="inner">
-                                <div class="icon">
-                                    <i data-feather="wifi"></i>
-                                </div>
-                                <div class="content">
-                                    <h4 class="title"><a href="#">CEO Marketing</a></h4>
-                                    <p class="description">always free from repetition,
-                                        injected humour, or non-characteristic words etc.</p>
-                                    <a class="read-more-button" href="#"><i class="feather-arrow-right"></i></a>
-                                </div>
-                            </div>
-                            <a class="over-link" href="#"></a>
-                        </div>
-                    </div>
-                    <!-- End SIngle Service -->
-                    <!-- Start Single Service -->
-                    <div data-aos="fade-up" data-aos-duration="500" data-aos-delay="500" data-aos-once="true" class="col-lg-6 col-xl-4 col-md-6 col-sm-12 col-12 mt--50 mt_md--30 mt_sm--30">
-                        <div class="rn-service">
-                            <div class="inner">
-                                <div class="icon">
-                                    <i data-feather="slack"></i>
-                                </div>
-                                <div class="content">
-                                    <h4 class="title"><a href="#">Personal Portfolio April</a></h4>
-                                    <p class="description"> It uses a dictionary of over 200 Latin words, combined with
-                                        a handful of model sentence.</p>
-                                    <a class="read-more-button" href="#"><i class="feather-arrow-right"></i></a>
-                                </div>
-                            </div>
-                            <a class="over-link" href="#"></a>
-                        </div>
-                    </div>
-                    <!-- End SIngle Service -->
+                    <?php } ?>
 
                 </div>
             </div>
@@ -353,167 +265,37 @@ $best=$result->fetch_assoc();
                 </div>
 
                 <div class="row row--25 mt--10 mt_md--10 mt_sm--10">
+<?php
+$result=$con->query("SELECT * FROM portfolio ORDER BY id");
+while($row=$result->fetch_assoc()){
+?>
                     <!-- Start Single Portfolio -->
                     <div data-aos="fade-up" data-aos-delay="100" data-aos-once="true" class="col-lg-6 col-xl-4 col-md-6 col-12 mt--50 mt_md--30 mt_sm--30">
-                        <div class="rn-portfolio" data-toggle="modal" data-target="#exampleModalCenter">
+                        <div class="rn-portfolio">
                             <div class="inner">
                                 <div class="thumbnail">
-                                    <a href="javascript:void(0)">
-                                        <img src="assets/images/portfolio/portfolio-01.jpg" alt="Personal Portfolio Images">
+                                    <a>
+                                        <img src="assets/images/portfolio/<?php echo $row['image']; ?>" alt="Personal Portfolio Images">
                                     </a>
                                 </div>
                                 <div class="content">
                                     <div class="category-info">
                                         <div class="category-list">
-                                            <a href="javascript:void(0)">Development</a>
+                                            <a><?php echo $row['title']; ?></a>
                                         </div>
                                         <div class="meta">
-                                            <span><a href="javascript:void(0)"><i class="feather-heart"></i></a>
+                                            <span><a><i class="feather-heart"></i></a>
                                                 600</span>
                                         </div>
                                     </div>
-                                    <h4 class="title"><a href="javascript:void(0)">The services provide for design <i
+                                    <h4 class="title"><a href="<?php echo $row["link"]; ?>"><?php echo $row['tagline']; ?><i
                                                 class="feather-arrow-up-right"></i></a></h4>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!-- End Single Portfolio -->
-
-                    <!-- Start Single Portfolio -->
-                    <div data-aos="fade-up" data-aos-delay="300" data-aos-once="true" class="col-lg-6 col-xl-4 col-md-6 col-12 mt--50 mt_md--30 mt_sm--30">
-                        <div class="rn-portfolio" data-toggle="modal" data-target="#exampleModalCenter">
-                            <div class="inner">
-                                <div class="thumbnail">
-                                    <a href="javascript:void(0)">
-                                        <img src="assets/images/portfolio/portfolio-02.jpg" alt="Personal Portfolio Images">
-                                    </a>
-                                </div>
-                                <div class="content">
-                                    <div class="category-info">
-                                        <div class="category-list">
-                                            <a href="javascript:void(0)">Application</a>
-                                        </div>
-                                        <div class="meta">
-                                            <span><a href="javascript:void(0)"><i class="feather-heart"></i></a>
-                                                750</span>
-                                        </div>
-                                    </div>
-                                    <h4 class="title"><a href="javascript:void(0)">Mobile app landing design & app
-                                            maintain<i class="feather-arrow-up-right"></i></a></h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Single Portfolio -->
-
-                    <!-- Start Single Portfolio -->
-                    <div data-aos="fade-up" data-aos-delay="500" data-aos-once="true" class="col-lg-6 col-xl-4 col-md-6 col-12 mt--50 mt_md--30 mt_sm--30">
-                        <div class="rn-portfolio" data-toggle="modal" data-target="#exampleModalCenter">
-                            <div class="inner">
-                                <div class="thumbnail">
-                                    <a href="javascript:void(0)">
-                                        <img src="assets/images/portfolio/portfolio-03.jpg" alt="Personal Portfolio Images">
-                                    </a>
-                                </div>
-                                <div class="content">
-                                    <div class="category-info">
-                                        <div class="category-list">
-                                            <a href="javascript:void(0)">Photoshop</a>
-                                        </div>
-                                        <div class="meta">
-                                            <span><a href="javascript:void(0)"><i class="feather-heart"></i></a>
-                                                630</span>
-                                        </div>
-                                    </div>
-                                    <h4 class="title"><a href="javascript:void(0)">Logo design creativity & Application
-                                            <i class="feather-arrow-up-right"></i></a></h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Single Portfolio -->
-
-                    <!-- Start Single Portfolio -->
-                    <div data-aos="fade-up" data-aos-delay="100" data-aos-once="true" class="col-lg-6 col-xl-4 col-md-6 col-12 mt--50 mt_md--30 mt_sm--30">
-                        <div class="rn-portfolio" data-toggle="modal" data-target="#exampleModalCenter">
-                            <div class="inner">
-                                <div class="thumbnail">
-                                    <a href="javascript:void(0)">
-                                        <img src="assets/images/portfolio/portfolio-04.jpg" alt="Personal Portfolio Images">
-                                    </a>
-                                </div>
-                                <div class="content">
-                                    <div class="category-info">
-                                        <div class="category-list">
-                                            <a href="javascript:void(0)">Figma</a>
-                                        </div>
-                                        <div class="meta">
-                                            <span><a href="javascript:void(0)"><i class="feather-heart"></i></a>
-                                                360</span>
-                                        </div>
-                                    </div>
-                                    <h4 class="title"><a href="javascript:void(0)">Mobile app landing design &
-                                            Services<i class="feather-arrow-up-right"></i></a></h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Single Portfolio -->
-
-                    <!-- Start Single Portfolio -->
-                    <div data-aos="fade-up" data-aos-delay="300" data-aos-once="true" class="col-lg-6 col-xl-4 col-md-6 col-12 mt--50 mt_md--30 mt_sm--30">
-                        <div class="rn-portfolio" data-toggle="modal" data-target="#exampleModalCenter">
-                            <div class="inner">
-                                <div class="thumbnail">
-                                    <a href="javascript:void(0)">
-                                        <img src="assets/images/portfolio/portfolio-05.jpg" alt="Personal Portfolio Images">
-                                    </a>
-                                </div>
-                                <div class="content">
-                                    <div class="category-info">
-                                        <div class="category-list">
-                                            <a href="javascript:void(0)">Web Design</a>
-                                        </div>
-                                        <div class="meta">
-                                            <span><a href="javascript:void(0)"><i class="feather-heart"></i></a>
-                                                280</span>
-                                        </div>
-                                    </div>
-                                    <h4 class="title"><a href="javascript:void(0)">Design for tecnology & services<i
-                                                class="feather-arrow-up-right"></i></a></h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Single Portfolio -->
-
-                    <!-- Start Single Portfolio -->
-                    <div data-aos="fade-up" data-aos-delay="500" data-aos-once="true" class="col-lg-6 col-xl-4 col-md-6 col-12 mt--50 mt_md--30 mt_sm--30">
-                        <div class="rn-portfolio" data-toggle="modal" data-target="#exampleModalCenter">
-                            <div class="inner">
-                                <div class="thumbnail">
-                                    <a href="javascript:void(0)">
-                                        <img src="assets/images/portfolio/portfolio-06.jpg" alt="Personal Portfolio Images">
-                                    </a>
-                                </div>
-                                <div class="content">
-                                    <div class="category-info">
-                                        <div class="category-list">
-                                            <a href="javascript:void(0)">Web Design</a>
-                                        </div>
-                                        <div class="meta">
-                                            <span><a href="javascript:void(0)"><i class="feather-heart"></i></a>
-                                                690</span>
-                                        </div>
-                                    </div>
-                                    <h4 class="title"><a href="javascript:void(0)">App for tecnology & services<i
-                                                class="feather-arrow-up-right"></i></a></h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Single Portfolio -->
+                    <?php } ?>
                 </div>
             </div>
         </div>

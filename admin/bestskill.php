@@ -72,7 +72,7 @@ $info=$result->fetch_assoc();
     <input type="file" name="img1" id="inpFile">
     <div class="image-preview" id="imagePreview">
            <span class="image-preview__default-text">           
-             <img src="../assets/images/bestskills/img1.png" alt="Image Preview" class="image-preview__image">
+             <img src="../assets/images/bestskills/img1.png" alt="Image Preview"  style='display:block' class="image-preview__image">
 </span></div>
         <br>
         <label for="telNo">Link 1:</label>
@@ -82,7 +82,7 @@ $info=$result->fetch_assoc();
        <input type="file" name="img2" id="inpFile">
        <div class="image-preview" id="imagePreview">
            <span class="image-preview__default-text">           
-             <img src="../assets/images/bestskills/img2.png" alt="Image Preview" class="image-preview__image">
+             <img src="../assets/images/bestskills/img2.png" alt="Image Preview"  style='display:block' class="image-preview__image">
 </span></div>
            <br>
            <label for="telNo">Link 2:</label>
@@ -92,7 +92,7 @@ $info=$result->fetch_assoc();
            <input type="file" name="img3" id="inpFile">
            <div class="image-preview" id="imagePreview">
            <span class="image-preview__default-text">           
-             <img src="../assets/images/bestskills/img3.png" alt="Image Preview" class="image-preview__image">
+             <img src="../assets/images/bestskills/img3.png" alt="Image Preview" style='display:block' class="image-preview__image">
 </span></div>
                <label for="telNo">Link 3:</label>
                <input class="inpt" type="text" name="link3" id="name" value="<?php echo $info['link3']; ?>" placeholder="Enter Your 3rd Preferable Link" maxlength="250">
