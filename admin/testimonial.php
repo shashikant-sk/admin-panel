@@ -24,7 +24,7 @@ if(isset($_POST['save'])){
 }
 if(isset($_POST['delete'])){
   $id=$_POST['id'];
-  $img=$con->query("SELECT * FROM portfolio WHERE id=$id")->fetch_assoc()["image"];
+  $img=$con->query("SELECT * FROM testimonial WHERE id=$id")->fetch_assoc()["img"];
   unlink("../assets/images/testimonial/$img");
   $result=$con->query("DELETE FROM testimonial WHERE id=$id");
   if($result){
