@@ -341,66 +341,32 @@ while($row=$result->fetch_assoc()){
                                                 <span class="subtitle">2020</span>
                                                 <h4 class="maintitle">Education Quality</h4>
                                                 <div class="experience-list">
-
-                                                    <!-- Start Single List  -->
-                                                    <div class="resume-single-list">
-                                                        <div class="inner">
-                                                            <div class="heading">
-                                                                <div class="title">
-                                                                    <h4>Personal Portfolio April Fools</h4>
-                                                                    <span>University of DVI (1997 - 2001)</span>
-                                                                </div>
-                                                                <div class="date-of-time">
-                                                                    <span>⭐⭐⭐⭐⭐</span>
-                                                                </div>
-                                                            </div>
-                                                            <p class="description">The education should be very
-                                                                interactual. Ut tincidunt est ac dolor aliquam sodales.
-                                                                Phasellus sed mauris hendrerit, laoreet sem in, lobortis
-                                                                mauris hendrerit ante.</p>
-                                                        </div>
-                                                    </div>
-                                                    <!-- End Single List  -->
-
-                                                    <!-- Start Single List  -->
-                                                    <div class="resume-single-list">
-                                                        <div class="inner">
-                                                            <div class="heading">
-                                                                <div class="title">
-                                                                    <h4> Examples Of Personal Portfolio</h4>
-                                                                    <span>College of Studies (2000 - 2002)</span>
-                                                                </div>
-                                                                <div class="date-of-time">
-                                                                    <span>⭐⭐⭐⭐⭐</span>
-                                                                </div>
-                                                            </div>
-                                                            <p class="description">Maecenas finibus nec sem ut
-                                                                imperdiet. Ut tincidunt est ac dolor aliquam sodales.
-                                                                Phasellus sed mauris hendrerit, laoreet sem in, lobortis
-                                                                mauris hendrerit ante.</p>
-                                                        </div>
-                                                    </div>
-                                                    <!-- End Single List  -->
-
-                                                    <!-- Start Single List  -->
-                                                    <div class="resume-single-list">
-                                                        <div class="inner">
-                                                            <div class="heading">
-                                                                <div class="title">
-                                                                    <h4>Tips For Personal Portfolio</h4>
-                                                                    <span>University of Studies (1997 - 2001)</span>
-                                                                </div>
-                                                                <div class="date-of-time">
-                                                                    <span>⭐⭐⭐⭐⭐</span>
-                                                                </div>
-                                                            </div>
-                                                            <p class="description"> If you are going to use a passage.
-                                                                Ut tincidunt est ac dolor aliquam sodales.
-                                                                Phasellus sed mauris hendrerit, laoreet sem in, lobortis
-                                                                mauris hendrerit ante.</p>
-                                                        </div>
-                                                    </div>
-                                                    <!-- End Single List  -->
+                                                    <?php
+                                                    $result=$con->query("Select * from education order by id DESC");
+                                                    $count=$result->num_rows;
+                                                    $show1=($count)/2;
+                                                    for($i=0; $i<$show1 ;$i++){
+                                                        $row=$result->fetch_assoc();
+                                                        echo "
+<!-- Start Single List  -->
+<div class='resume-single-list'>
+  <div class='inner'>
+      <div class='heading'>
+          <div class='title'>
+              <h4>".$row["title"]."</h4>
+              <span>".$row["clgName"]."</span>
+          </div>
+          <div class='date-of-time'>
+              <span>".$row["evaluation"]."</span>
+          </div>
+      </div>
+      <p class='description'>".$row["des"]."</p>
+  </div>
+</div>
+<!-- End Single List  -->
+                                                        ";
+                                                    }
+                                                    ?>
 
                                                 </div>
                                             </div>
@@ -413,23 +379,28 @@ while($row=$result->fetch_assoc()){
                                                 <!-- <span class="subtitle">2007 - 2010</span>
                                                 <h4 class="maintitle">Job Experience</h4> -->
                                                 <div class="experience-list">
-
-                                                    <!-- Start Single List  -->
-                                                    <div class="resume-single-list">
-                                                        <div class="inner">
-                                                            <div class="heading">
-                                                                <div class="title">
-                                                                    <h4>comming</h4>
-                                                                    <span>xxxxxxxxxxxxxxxxxxxxxxx</span>
-                                                                </div>
-                                                                <div class="date-of-time">
-                                                                    <span>⭐⭐⭐⭐⭐</span>
-                                                                </div>
-                                                            </div>
-                                                            <p class="description">xxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxx xxxxxxxxxxxxxxx xxxxxxxxxxxxxxxx xxxxxxxxxxxx</p>
-                                                        </div>
-                                                    </div>
-                                                    <!-- End Single List  -->
+                                                    <?php
+                                                    while($row=$result->fetch_assoc()){
+                                                        echo "
+<!-- Start Single List  -->
+<div class='resume-single-list'>
+  <div class='inner'>
+      <div class='heading'>
+          <div class='title'>
+              <h4>".$row["title"]."</h4>
+              <span>".$row["clgName"]."</span>
+          </div>
+          <div class='date-of-time'>
+              <span>".$row["evaluation"]."</span>
+          </div>
+      </div>
+      <p class='description'>".$row["des"]."</p>
+  </div>
+</div>
+<!-- End Single List  -->
+                                                        ";
+                                                    }
+                                                    ?>
 
                                                     <!-- Start Single List  -->
                                                     <!-- <div class="resume-single-list">
@@ -492,55 +463,23 @@ while($row=$result->fetch_assoc()){
                                                 <div class="content">
                                                     <span class="subtitle">Features</span>
                                                     <h4 class="maintitle">Design Skill</h4>
+                                                    <?php
+                                                    $result=$con->query("Select * from skills where type=0 order by value desc");
+                                                    while($row=$result->fetch_assoc()){
+                                                        echo"
+                                                        
                                                     <!-- Start Single Progress Charts -->
-                                                    <div class="progress-charts">
-                                                        <h6 class="heading heading-h6">PHOTOSHOT</h6>
-                                                        <div class="progress">
-                                                            <div class="progress-bar wow fadeInLeft" data-wow-duration="0.5s" data-wow-delay=".3s" role="progressbar" style="width: 100%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"><span
-                                                                    class="percent-label">100%</span></div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- End Single Progress Charts -->
-
-                                                    <!-- Start Single Progress Charts -->
-                                                    <div class="progress-charts">
-                                                        <h6 class="heading heading-h6">FIGMA</h6>
-                                                        <div class="progress">
-                                                            <div class="progress-bar wow fadeInLeft" data-wow-duration="0.6s" data-wow-delay=".4s" role="progressbar" style="width: 95%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"><span
-                                                                    class="percent-label">95%</span></div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- End Single Progress Charts -->
-
-                                                    <!-- Start Single Progress Charts -->
-                                                    <div class="progress-charts">
-                                                        <h6 class="heading heading-h6">ADOBE XD</h6>
-                                                        <div class="progress">
-                                                            <div class="progress-bar wow fadeInLeft" data-wow-duration="0.7s" data-wow-delay=".5s" role="progressbar" style="width: 60%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"><span
-                                                                    class="percent-label">60%</span></div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- End Single Progress Charts -->
-
-                                                    <!-- Start Single Progress Charts -->
-                                                    <div class="progress-charts">
-                                                        <h6 class="heading heading-h6">ADOBE ILLUSTRATOR</h6>
-                                                        <div class="progress">
-                                                            <div class="progress-bar wow fadeInLeft" data-wow-duration="0.8s" data-wow-delay=".6s" role="progressbar" style="width: 70%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"><span
-                                                                    class="percent-label">70%</span></div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- End Single Progress Charts -->
-
-                                                    <!-- Start Single Progress Charts -->
-                                                    <div class="progress-charts">
-                                                        <h6 class="heading heading-h6">DESIGN</h6>
-                                                        <div class="progress">
-                                                            <div class="progress-bar wow fadeInLeft" data-wow-duration="0.9s" data-wow-delay=".7s" role="progressbar" style="width: 90%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"><span
-                                                                    class="percent-label">90%</span></div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- End Single Progress Charts -->
+                                                    <div class='progress-charts'>
+                                                      <h6 class='heading heading-h6'>".$row["name"]."</h6>
+                                                      <div class='progress'>
+                                                          <div class='progress-bar wow fadeInLeft' data-wow-duration='0.5s' data-wow-delay='.3s' role='progressbar' style='width: ".$row["value"]."%' aria-valuenow='85' aria-valuemin='0' aria-valuemax='100'><span
+                                                                  class='percent-label'>".$row["value"]."%</span></div>
+                                                      </div>
+                                                  </div>
+                                                  <!-- End Single Progress Charts -->
+                                                        ";
+                                                    }
+                                                    ?>
 
                                                 </div>
                                             </div>
@@ -553,55 +492,22 @@ while($row=$result->fetch_assoc()){
                                                 <div class="content">
                                                     <span class="subtitle">Features</span>
                                                     <h4 class="maintitle">Development Skill</h4>
+                                                    <?php
+                                                    $result=$con->query("Select * from skills where type=1 order by value desc");
+                                                    while($row=$result->fetch_assoc()){
+                                                        echo"
                                                     <!-- Start Single Progress Charts -->
-                                                    <div class="progress-charts">
-                                                        <h6 class="heading heading-h6">HTML</h6>
-                                                        <div class="progress">
-                                                            <div class="progress-bar wow fadeInLeft" data-wow-duration="0.5s" data-wow-delay=".3s" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"><span
-                                                                    class="percent-label">85%</span></div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- End Single Progress Charts -->
-
-                                                    <!-- Start Single Progress Charts -->
-                                                    <div class="progress-charts">
-                                                        <h6 class="heading heading-h6">CSS</h6>
-                                                        <div class="progress">
-                                                            <div class="progress-bar wow fadeInLeft" data-wow-duration="0.6s" data-wow-delay=".4s" role="progressbar" style="width: 80%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"><span
-                                                                    class="percent-label">80%</span></div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- End Single Progress Charts -->
-
-                                                    <!-- Start Single Progress Charts -->
-                                                    <div class="progress-charts">
-                                                        <h6 class="heading heading-h6">JAVASCRIPT</h6>
-                                                        <div class="progress">
-                                                            <div class="progress-bar wow fadeInLeft" data-wow-duration="0.7s" data-wow-delay=".5s" role="progressbar" style="width: 90%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"><span
-                                                                    class="percent-label">90%</span></div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- End Single Progress Charts -->
-
-                                                    <!-- Start Single Progress Charts -->
-                                                    <div class="progress-charts">
-                                                        <h6 class="heading heading-h6">SOFTWARE</h6>
-                                                        <div class="progress">
-                                                            <div class="progress-bar wow fadeInLeft" data-wow-duration="0.8s" data-wow-delay=".6s" role="progressbar" style="width: 75%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"><span
-                                                                    class="percent-label">75%</span></div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- End Single Progress Charts -->
-
-                                                    <!-- Start Single Progress Charts -->
-                                                    <div class="progress-charts">
-                                                        <h6 class="heading heading-h6">PLUGIN</h6>
-                                                        <div class="progress">
-                                                            <div class="progress-bar wow fadeInLeft" data-wow-duration="0.9s" data-wow-delay=".7s" role="progressbar" style="width: 70%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"><span
-                                                                    class="percent-label">70%</span></div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- End Single Progress Charts -->
+                                                    <div class='progress-charts'>
+                                                      <h6 class='heading heading-h6'>".$row["name"]."</h6>
+                                                      <div class='progress'>
+                                                          <div class='progress-bar wow fadeInLeft' data-wow-duration='0.5s' data-wow-delay='.3s' role='progressbar' style='width: ".$row["value"]."%' aria-valuenow='85' aria-valuemin='0' aria-valuemax='100'><span
+                                                                  class='percent-label'>".$row["value"]."%</span></div>
+                                                      </div>
+                                                  </div>
+                                                  <!-- End Single Progress Charts -->
+                                                        ";
+                                                    }
+                                                    ?>
 
                                                 </div>
                                             </div>
@@ -623,66 +529,32 @@ while($row=$result->fetch_assoc()){
                                                 <span class="subtitle">- 2010</span>
                                                 <h4 class="maintitle">Job Experience</h4>
                                                 <div class="experience-list">
-
-                                                    <!-- Start Single List  -->
-                                                    <div class="resume-single-list">
-                                                        <div class="inner">
-                                                            <div class="heading">
-                                                                <div class="title">
-                                                                    <h4>Personal Portfolio April Fools</h4>
-                                                                    <span>University of DVI (1997 - 2001)</span>
-                                                                </div>
-                                                                <div class="date-of-time">
-                                                                    <span>⭐⭐⭐⭐⭐</span>
-                                                                </div>
-                                                            </div>
-                                                            <p class="description">The education should be very
-                                                                interactual. Ut tincidunt est ac dolor aliquam sodales.
-                                                                Phasellus sed mauris hendrerit, laoreet sem in, lobortis
-                                                                mauris hendrerit ante.</p>
-                                                        </div>
-                                                    </div>
-                                                    <!-- End Single List  -->
-
-                                                    <!-- Start Single List  -->
-                                                    <div class="resume-single-list">
-                                                        <div class="inner">
-                                                            <div class="heading">
-                                                                <div class="title">
-                                                                    <h4> Examples Of Personal Portfolio</h4>
-                                                                    <span>College of Studies (2000 - 2002)</span>
-                                                                </div>
-                                                                <div class="date-of-time">
-                                                                    <span>⭐⭐⭐⭐⭐</span>
-                                                                </div>
-                                                            </div>
-                                                            <p class="description">Maecenas finibus nec sem ut
-                                                                imperdiet. Ut tincidunt est ac dolor aliquam sodales.
-                                                                Phasellus sed mauris hendrerit, laoreet sem in, lobortis
-                                                                mauris hendrerit ante.</p>
-                                                        </div>
-                                                    </div>
-                                                    <!-- End Single List  -->
-
-                                                    <!-- Start Single List  -->
-                                                    <div class="resume-single-list">
-                                                        <div class="inner">
-                                                            <div class="heading">
-                                                                <div class="title">
-                                                                    <h4>Tips For Personal Portfolio</h4>
-                                                                    <span>University of Studies (1997 - 2001)</span>
-                                                                </div>
-                                                                <div class="date-of-time">
-                                                                    <span>⭐⭐⭐⭐⭐</span>
-                                                                </div>
-                                                            </div>
-                                                            <p class="description"> If you are going to use a passage.
-                                                                Ut tincidunt est ac dolor aliquam sodales.
-                                                                Phasellus sed mauris hendrerit, laoreet sem in, lobortis
-                                                                mauris hendrerit ante.</p>
-                                                        </div>
-                                                    </div>
-                                                    <!-- End Single List  -->
+                                                <?php
+                                                    $result=$con->query("Select * from expirence order by id DESC");
+                                                    $count=$result->num_rows;
+                                                    $show1=($count)/2;
+                                                    for($i=0; $i<$show1 ;$i++){
+                                                        $row=$result->fetch_assoc();
+                                                        echo "
+<!-- Start Single List  -->
+<div class='resume-single-list'>
+  <div class='inner'>
+      <div class='heading'>
+          <div class='title'>
+              <h4>".$row["title"]."</h4>
+              <span>".$row["cmpName"]."</span>
+          </div>
+          <div class='date-of-time'>
+              <span>".$row["evaluation"]."</span>
+          </div>
+      </div>
+      <p class='description'>".$row["des"]."</p>
+  </div>
+</div>
+<!-- End Single List  -->
+                                                        ";
+                                                    }
+                                                    ?>
 
                                                 </div>
                                             </div>
@@ -695,26 +567,28 @@ while($row=$result->fetch_assoc()){
                                                 <!-- <span class="subtitle">2007 - 2010</span>
                                                 <h4 class="maintitle">Job Experience</h4> -->
                                                 <div class="experience-list">
-
-                                                    <!-- Start Single List  -->
-                                                    <div class="resume-single-list">
-                                                        <div class="inner">
-                                                            <div class="heading">
-                                                                <div class="title">
-                                                                    <h4>Diploma in Web Development</h4>
-                                                                    <span>BSE In CSE (2004 - 2008)</span>
-                                                                </div>
-                                                                <div class="date-of-time">
-                                                                    <span>⭐⭐⭐⭐⭐</span>
-                                                                </div>
-                                                            </div>
-                                                            <p class="description">Contrary to popular belief. Ut
-                                                                tincidunt est ac dolor aliquam sodales.
-                                                                Phasellus sed mauris hendrerit, laoreet sem in, lobortis
-                                                                mauris hendrerit ante.</p>
-                                                        </div>
-                                                    </div>
-                                                    <!-- End Single List  -->
+                                                <?php
+                                                    while($row=$result->fetch_assoc()){
+                                                        echo "
+<!-- Start Single List  -->
+<div class='resume-single-list'>
+  <div class='inner'>
+      <div class='heading'>
+          <div class='title'>
+              <h4>".$row["title"]."</h4>
+              <span>".$row["cmpName"]."</span>
+          </div>
+          <div class='date-of-time'>
+              <span>".$row["evaluation"]."</span>
+          </div>
+      </div>
+      <p class='description'>".$row["des"]."</p>
+  </div>
+</div>
+<!-- End Single List  -->
+                                                        ";
+                                                    }
+                                                    ?>
 
                                                     <!-- Start Single List  -->
                                                     <!-- <div class="resume-single-list">
