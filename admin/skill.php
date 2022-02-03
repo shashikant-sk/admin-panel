@@ -68,7 +68,6 @@ if(isset($_POST['addNew'])){
     <?php 
 $result=$con->query("SELECT * FROM skills where type='0' ORDER BY id");
 while($row=$result->fetch_assoc()){
-  $i++;
   echo"
   <form action='' method='post'>
   <input value='".$row["id"]."' name='id' style='display:none'>
