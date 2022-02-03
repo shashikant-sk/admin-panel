@@ -663,198 +663,45 @@ while($row=$result->fetch_assoc()){
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="testimonial-activation testimonial-pb mb--30">
+                            <?php
+                            $result=$con->query("Select * from testimonial");
+                            while($row=$result->fetch_assoc()){
+                                echo "
+                                
                             <!-- Start Single testiminail -->
-                            <div class="testimonial mt--50 mt_md--40 mt_sm--40">
-                                <div class="inner">
-                                    <div class="card-info">
-                                        <div class="card-thumbnail">
-                                            <img src="assets/images/testimonial/final-home--1st.png" alt="Testimonial-image">
-                                        </div>
-                                        <div class="card-content">
-                                            <span class="subtitle mt--10">Rainbow-Themes</span>
-                                            <h3 class="title">Rahul Kumar</h3>
-                                            <span class="designation">Frontend Developer & Designer</span>
-                                        </div>
-                                    </div>
-                                    <div class="card-description">
-                                        <div class="title-area">
-                                            <div class="title-info">
-                                                <h3 class="title">Android App Development</h3>
-                                                <span class="date">via Upwork - Mar 4, 2015 - Aug 30, 2021</span>
-                                            </div>
-                                            <div class="rating">
-                                                <img src="assets/images/icons/rating.png" alt="rating-image">
-                                                <img src="assets/images/icons/rating.png" alt="rating-image">
-                                                <img src="assets/images/icons/rating.png" alt="rating-image">
-                                                <img src="assets/images/icons/rating.png" alt="rating-image">
-                                                <img src="assets/images/icons/rating.png" alt="rating-image">
-                                            </div>
-                                        </div>
-                                        <div class="seperator"></div>
-                                        <p class="discription">
-                                            Maecenas finibus nec sem ut imperdiet. Ut tincidunt est ac dolor aliquam
-                                            sodales. Phasellus sed mauris hendrerit, laoreet sem in, lobortis mauris
-                                            hendrerit ante. Ut tincidunt est ac dolor aliquam sodales phasellus smauris
-                                            .
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--End Single testiminail -->
-                            <!-- Start Single testiminail -->
-                            <div class="testimonial mt--50 mt_md--40 mt_sm--40">
-                                <div class="inner">
-                                    <div class="card-info">
-                                        <div class="card-thumbnail">
-                                            <img src="assets/images/testimonial/final-home--2nd.png" alt="Testimonial-image">
-                                        </div>
-                                        <div class="card-content">
-                                            <span class="subtitle mt--10">Bound - Trolola</span>
-                                            <h3 class="title">Jone Duone Joe</h3>
-                                            <span class="designation">Operating Officer</span>
-                                        </div>
-                                    </div>
-                                    <div class="card-description">
-                                        <div class="title-area">
-                                            <div class="title-info">
-                                                <h3 class="title">Web App Development</h3>
-                                                <span class="date">Upwork - Mar 4, 2016 - Aug 30, 2021</span>
-                                            </div>
-                                            <div class="rating">
-                                                <img src="assets/images/icons/rating.png" alt="rating-image">
-                                                <img src="assets/images/icons/rating.png" alt="rating-image">
-                                                <img src="assets/images/icons/rating.png" alt="rating-image">
-                                                <img src="assets/images/icons/rating.png" alt="rating-image">
-                                                <img src="assets/images/icons/rating.png" alt="rating-image">
-                                            </div>
-                                        </div>
-                                        <div class="seperator"></div>
-                                        <p class="discription">
-                                            Important fact to nec sem ut imperdiet. Ut tincidunt est ac dolor aliquam
-                                            sodales. Phasellus sed mauris hendrerit, laoreet sem in, lobortis mauris
-                                            hendrerit ante. Ut tincidunt est ac dolor aliquam sodales phasellus smauris
-                                            .
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--End Single testiminail -->
-                            <!-- Start Single testiminail -->
-                            <div class="testimonial mt--50 mt_md--40 mt_sm--40">
-                                <div class="inner">
-                                    <div class="card-info">
-                                        <div class="card-thumbnail">
-                                            <img src="assets/images/testimonial/final-home--3rd.png" alt="Testimonial-image">
-                                        </div>
-                                        <div class="card-content">
-                                            <span class="subtitle mt--10">Glassfisom</span>
-                                            <h3 class="title">Nevine Dhawan</h3>
-                                            <span class="designation">CEO Of Officer</span>
-                                        </div>
-                                    </div>
-                                    <div class="card-description">
-                                        <div class="title-area">
-                                            <div class="title-info">
-                                                <h3 class="title">Android App Design</h3>
-                                                <span class="date">Fiver - Mar 4, 2015 - Aug 30, 2021</span>
-                                            </div>
-                                            <div class="rating">
-                                                <img src="assets/images/icons/rating.png" alt="rating-image">
-                                                <img src="assets/images/icons/rating.png" alt="rating-image">
-                                                <img src="assets/images/icons/rating.png" alt="rating-image">
-                                                <img src="assets/images/icons/rating.png" alt="rating-image">
-                                                <img src="assets/images/icons/rating.png" alt="rating-image">
-                                            </div>
-                                        </div>
-                                        <div class="seperator"></div>
-                                        <p class="discription">
-                                            No more question for design. Ut tincidunt est ac dolor aliquam
-                                            sodales. Phasellus sed mauris hendrerit, laoreet sem in, lobortis mauris
-                                            hendrerit ante. Ut tincidunt est ac dolor aliquam sodales phasellus smauris
-                                            .
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--End Single testiminail -->
-
-                            <!-- Start Single testiminail -->
-                            <div class="testimonial mt--50 mt_md--40 mt_sm--40">
-                                <div class="inner">
-                                    <div class="card-info">
-                                        <div class="card-thumbnail">
-                                            <img src="assets/images/testimonial/final-home--4th.png" alt="Testimonial-image">
-                                        </div>
-                                        <div class="card-content">
-                                            <span class="subtitle mt--10">NCD - Design</span>
-                                            <h3 class="title">Mevine Thoda</h3>
-                                            <span class="designation">Marketing Officer</span>
-                                        </div>
-                                    </div>
-                                    <div class="card-description">
-                                        <div class="title-area">
-                                            <div class="title-info">
-                                                <h3 class="title">CEO - Marketing</h3>
-                                                <span class="date">Thoda Department - Mar 4, 2018 - Aug 30, 2021</span>
-                                            </div>
-                                            <div class="rating">
-                                                <img src="assets/images/icons/rating.png" alt="rating-image">
-                                                <img src="assets/images/icons/rating.png" alt="rating-image">
-                                                <img src="assets/images/icons/rating.png" alt="rating-image">
-                                                <img src="assets/images/icons/rating.png" alt="rating-image">
-                                                <img src="assets/images/icons/rating.png" alt="rating-image">
-                                            </div>
-                                        </div>
-                                        <div class="seperator"></div>
-                                        <p class="discription">
-                                            Marcent Of Vanice and treatment. Ut tincidunt est ac dolor aliquam
-                                            sodales. Phasellus sed mauris hendrerit, laoreet sem in, lobortis mauris
-                                            hendrerit ante. Ut tincidunt est ac dolor aliquam sodales phasellus smauris
-                                            .
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--End Single testiminail -->
-
-                            <!-- Start Single testiminail -->
-                            <div class="testimonial mt--50 mt_md--40 mt_sm--40">
-                                <div class="inner">
-                                    <div class="card-info">
-                                        <div class="card-thumbnail">
-                                            <img src="assets/images/testimonial/final-home--5th.png" alt="Testimonial-image">
-                                        </div>
-                                        <div class="card-content">
-                                            <span class="subtitle mt--10">Default name</span>
-                                            <h3 class="title">Davei Luace</h3>
-                                            <span class="designation">Chief Operating Manager</span>
-                                        </div>
-                                    </div>
-                                    <div class="card-description">
-                                        <div class="title-area">
-                                            <div class="title-info">
-                                                <h3 class="title">Android App Development</h3>
-                                                <span class="date">via Upwork - Mar 4, 2015 - Aug 30, 2021</span>
-                                            </div>
-                                            <div class="rating">
-                                                <img src="assets/images/icons/rating.png" alt="rating-image">
-                                                <img src="assets/images/icons/rating.png" alt="rating-image">
-                                                <img src="assets/images/icons/rating.png" alt="rating-image">
-                                                <img src="assets/images/icons/rating.png" alt="rating-image">
-                                                <img src="assets/images/icons/rating.png" alt="rating-image">
-                                            </div>
-                                        </div>
-                                        <div class="seperator"></div>
-                                        <p class="discription">
-                                            When managment is so important. Ut tincidunt est ac dolor aliquam
-                                            sodales. Phasellus sed mauris hendrerit, laoreet sem in, lobortis mauris
-                                            hendrerit ante. Ut tincidunt est ac dolor aliquam sodales phasellus smauris
-                                            .
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--End Single testiminail -->
+                            <div class='testimonial mt--50 mt_md--40 mt_sm--40'>
+                              <div class='inner'>
+                                  <div class='card-info'>
+                                      <div class='card-thumbnail'>
+                                          <img src='assets/images/testimonial/".$row["img"]."' alt='Testimonial-image'>
+                                      </div>
+                                      <div class='card-content'>
+                                          <span class='subtitle mt--10'>".$row["company"]."</span>
+                                          <h3 class='title'>".$row["name"]."</h3>
+                                          <span class='designation'>".$row["post"]."</span>
+                                      </div>
+                                  </div>
+                                  <div class='card-description'>
+                                      <div class='title-area'>
+                                          <div class='title-info'>
+                                              <h3 class='title'>".$row["title"]."</h3>
+                                              <span class='date'>".$row["duration"]."</span>
+                                          </div>
+                                          <div class='rating'>
+                                          ".$row["evaluation"]."
+                                          </div>
+                                      </div>
+                                      <div class='seperator'></div>
+                                      <p class='discription'>
+                                      ".$row["des"]."
+                                      </p>
+                                  </div>
+                              </div>
+                          </div>
+                          <!--End Single testiminail -->
+                                ";
+                            }
+                            ?>
                         </div>
                     </div>
                 </div>
