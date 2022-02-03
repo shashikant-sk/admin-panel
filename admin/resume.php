@@ -1,3 +1,46 @@
+<?php 
+include('../db.php'); 
+if(isset($_POST['save'])){
+  $id=$_POST['id'];
+  $title=$_POST['title'];
+  $clgName=$_POST['clgName'];
+  $des=$_POST["des"];
+  $evaluation=$_POST['evaluation'];
+  // $img=$con->query("SELECT * FROM education WHERE id=$id")->fetch_assoc()["image"];
+  // if($_FILES['inpFile']['tmp_name']!=""){
+  //   unlink("../assets/images/portfolio/$img");
+  //   $image = time().$_FILES['inpFile']['name'];
+  //   move_uploaded_file($_FILES['inpFile']['tmp_name'], "../assets/images/portfolio/$image");
+  // }else{
+  //   $image = $img;
+  // }
+  $result=$con->query("UPDATE education SET title='$title', clgName='$clgName', des='$des', evaluation='$evaluation' WHERE id=$id");
+  if($result){
+    echo "<script>alert('Updated'); </script>";
+  }
+}
+if(isset($_POST['delete'])){
+  $id=$_POST['id'];
+  // $img=$con->query("SELECT * FROM ed WHERE id=$id")->fetch_assoc()["image"];
+  // unlink("../assets/images/portfolio/$img");
+  $result=$con->query("DELETE FROM education WHERE id=$id");
+  if($result){
+    echo "<script>alert('Deleted'); </script>";
+  }
+}
+if(isset($_POST['addNew'])){
+  $title=$_POST['title'];
+  $clgName=$_POST['clgName'];
+  $des=$_POST["des"];
+  $evaluation=$_POST['evaluation'];
+  // $image = time().$_FILES['inpFile']['name'];
+  // move_uploaded_file($_FILES['inpFile']['tmp_name'],'../assets/images/portfolio/'.$image);
+  $result=$con->query("INSERT INTO education (title, clgName, des, evaluation) VALUES ('$title', '$clgName', '$des', '$evaluation')");
+  if($result){
+    echo "<script>alert('Inserted'); </script>";
+  }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,35 +98,85 @@
   </div>
   <div class="form-content">
     <i><h1 class="topic-red">EDUCATION</h1></i><br><br>
+    <?php 
+$result=$con->query("SELECT * FROM education ORDER BY id");
+$i=0;
+while($row=$result->fetch_assoc()){
+  $i++;
+  echo"
+  <form action='' method='POST'>
+  <input name='id' value='".$row["id"]."' style='display:none' readonly>
+  <label for='telNo'>Title:</label>
+  <input class='inpt form-box' type='text' name='title' value='".$row["title"]."' placeholder='Enter Title ' maxlength='50'><br>
+  <label for='telNo'>College Name:</label>
+  <input class='inpt' type='text' name='clgName' value='".$row["clgName"]."' placeholder='Enter Your College Name' maxlength='250'>
+  <label for='telNo'>Description:</label>
+  <input class='inpt' type='text' name='des' value='".$row["des"]."' placeholder='Add some details regarding the Title' maxlength='250'>
+  <div class='dropdown'>
+    <button class='dropbtn'>Self Evaluation</button>
+    <!-- <div class='dropdown-content'> -->
+      <select name='evaluation' id='' value='".$row["evaluation"]."'>
+      <option href='#'>⭐</option>
+      <option href='#'>⭐⭐</option>
+      <option href='#'>⭐⭐⭐</option>
+      <option href='#'>⭐⭐⭐⭐</option>
+      <option href='#'>⭐⭐⭐⭐⭐</option>
+      <option selected='selected'>".$row["evaluation"]."</option>
+      </select>
+      </div>
+    <!-- </div> -->
+ <br><br>
+<button type='submit' name='save' class='button'>
+<span class='button__text'>Save</span>
+<span class='button__icon'>
+  <ion-icon name='cloud-download-outline'></ion-icon>
+</span>
+</button>
+<button type='submit' name='delete' style='background-color:red' class='button'>
+  <span class='button__text'>Delete</span>
+  <span class='button__icon'>
+    <ion-icon name='cloud-download-outline'></ion-icon>
+  </span>
+</button>
+</form><br><br>
+";
+}
+?>
+<hr><hr><br><br>
+    <form action="" method="POST">
     <label for="telNo">Title:</label>
-    <input class="inpt form-box" type="text" name="Name" id="name" placeholder="Enter Title " maxlength="50"><br>
+    <input class="inpt form-box" type="text" name="title" id="name" placeholder="Enter Title " maxlength="50"><br>
     <label for="telNo">College Name:</label>
-    <input class="inpt" type="text" name="Name" id="name" placeholder="Enter Your College Name" maxlength="250">
+    <input class="inpt" type="text" name="clgName" placeholder="Enter Your College Name" maxlength="250">
     <label for="telNo">Description:</label>
-    <input class="inpt" type="text" name="Name" id="name" placeholder="Add some details regarding the Title" maxlength="250">
+    <input class="inpt" type="text" name="des" placeholder="Add some details regarding the Title" maxlength="250">
     <div class="dropdown">
       <button class="dropbtn">Self Evaluation</button>
-      <div class="dropdown-content">
-        <a href="#">⭐</a>
-        <a href="#">⭐⭐</a>
-        <a href="#">⭐⭐⭐</a>
-        <a href="#">⭐⭐⭐⭐</a>
-        <a href="#">⭐⭐⭐⭐⭐</a>
-      </div></div>
-    <script src="https://kit.fontawesome.com/5ea815c1d0.js"></script>
+      <!-- <div class="dropdown-content"> -->
+        <select name="evaluation" id="">
+        <option href="#">⭐</option>
+        <option href="#">⭐⭐</option>
+        <option href="#">⭐⭐⭐</option>
+        <option href="#">⭐⭐⭐⭐</option>
+        <option href="#">⭐⭐⭐⭐⭐</option>
+        </select>
+        </div>
+      <!-- </div> -->
    <br><br>
-<button type="button" class="button">
-  <span class="button__text">Save</span>
+<button type="submit" name="addNew" class="button">
+  <span class="button__text">Add New</span>
   <span class="button__icon">
     <ion-icon name="cloud-download-outline"></ion-icon>
   </span>
 </button>
+</form>
+<script src="https://kit.fontawesome.com/5ea815c1d0.js"></script>
 <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script><br><br>
       </div>
     </div>
     </div>
 
-    <div class="form-content">
+    <!-- <div class="form-content">
       <label for="telNo">Title:</label>
       <input class="inpt form-box" type="text" name="Name" id="name" placeholder="Enter Title " maxlength="50"><br>
       <label for="telNo">College Name:</label>
@@ -190,7 +283,7 @@
               <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script><br><br>
               </div>
             </div><br><br>
-            </div>
+            </div> -->
   </div>
   </body>
    </html>
