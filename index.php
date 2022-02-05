@@ -37,7 +37,7 @@ $best=$result->fetch_assoc();
             <div class="col-lg-2 col-6">
                 <div class="header-left">
                     <div class="logo">
-                        <a href="index.html">
+                        <a href="index.php">
                             <img src="assets/images/logo/navbar.png" width="35%"  alt="logo">
                         </a>
                     </div>
@@ -86,7 +86,7 @@ $best=$result->fetch_assoc();
         <div class="inner">
             <div class="menu-top">
                 <div class="menu-header">
-                    <a class="logo" href="index.html">
+                    <a class="logo" href="index.php">
                         <img src="assets/images/logo/navbar.png" width="30%" alt="Personal Portfolio">
                     </a>
                     <div class="close-button">
@@ -2849,7 +2849,7 @@ while($row=$result->fetch_assoc()){
                                                     </a>
                                                 </div>
                                                 <div class="inner">
-                                                    <h3 class="title"><a href="index-model.html">Model</a></h3>
+                                                    <h3 class="title"><a href="index-model.php">Model</a></h3>
                                                 </div>
                                             </div>
                                         </div>
@@ -2861,7 +2861,7 @@ while($row=$result->fetch_assoc()){
                                         <div class="single-demo">
                                             <div class="inner badge-1">
                                                 <div class="thumbnail">
-                                                    <a href="home-consulting.html">
+                                                    <a href="home-consulting.php">
                                                         <img class="w-100" src="assets/images/demo/home-consulting.png" alt="Personal Portfolio">
                                                         <span class="overlay-content">
                                                     <span class="overlay-text">template <i
@@ -2870,7 +2870,7 @@ while($row=$result->fetch_assoc()){
                                                     </a>
                                                 </div>
                                                 <div class="inner">
-                                                    <h3 class="title"><a href="home-consulting.html">Consulting</a></h3>
+                                                    <h3 class="title"><a href="home-consulting.php">Consulting</a></h3>
                                                 </div>
                                             </div>
                                         </div>
@@ -2882,7 +2882,7 @@ while($row=$result->fetch_assoc()){
                                         <div class="single-demo">
                                             <div class="inner badge-1">
                                                 <div class="thumbnail">
-                                                    <a href="fashion-designer.html">
+                                                    <a href="fashion-designer.php">
                                                         <img class="w-100" src="assets/images/demo/fashion-designer.png" alt="Personal Portfolio">
                                                         <span class="overlay-content">
                                                     <span class="overlay-text">template <i
@@ -2891,7 +2891,7 @@ while($row=$result->fetch_assoc()){
                                                     </a>
                                                 </div>
                                                 <div class="inner">
-                                                    <h3 class="title"><a href="fashion-designer.html">Fashion Designer</a></h3>
+                                                    <h3 class="title"><a href="fashion-designer.php">Fashion Designer</a></h3>
                                                 </div>
                                             </div>
                                         </div>
@@ -2903,7 +2903,7 @@ while($row=$result->fetch_assoc()){
                                         <div class="single-demo">
                                             <div class="inner">
                                                 <div class="thumbnail">
-                                                    <a href="index-developer.html">
+                                                    <a href="index-developer.php">
                                                         <img class="w-100" src="assets/images/demo/developer.png" alt="Personal Portfolio">
                                                         <span class="overlay-content">
                                                     <span class="overlay-text">template <i
@@ -2912,7 +2912,7 @@ while($row=$result->fetch_assoc()){
                                                     </a>
                                                 </div>
                                                 <div class="inner">
-                                                    <h3 class="title"><a href="index-developer.html">Developer</a></h3>
+                                                    <h3 class="title"><a href="index-developer.php">Developer</a></h3>
                                                 </div>
                                             </div>
                                         </div>
@@ -2924,7 +2924,7 @@ while($row=$result->fetch_assoc()){
                                         <div class="single-demo">
                                             <div class="inner">
                                                 <div class="thumbnail">
-                                                    <a href="instructor-fitness.html">
+                                                    <a href="instructor-fitness.php">
                                                         <img class="w-100" src="assets/images/demo/instructor-fitness.png" alt="Personal Portfolio">
                                                         <span class="overlay-content">
                                                     <span class="overlay-text"> template<i
@@ -2933,7 +2933,7 @@ while($row=$result->fetch_assoc()){
                                                     </a>
                                                 </div>
                                                 <div class="inner">
-                                                    <h3 class="title"><a href="instructor-fitness.html">Fitness Instructor</a></h3>
+                                                    <h3 class="title"><a href="instructor-fitness.php">Fitness Instructor</a></h3>
                                                 </div>
                                             </div>
                                         </div>
@@ -2944,7 +2944,7 @@ while($row=$result->fetch_assoc()){
                                         <div class="single-demo">
                                             <div class="inner badge-1">
                                                 <div class="thumbnail">
-                                                    <a href="home-web-Developer.html">
+                                                    <a href="home-web-Developer.php">
                                                         <img class="w-100" src="assets/images/demo/home-model.png" alt="Personal Portfolio">
                                                         <span class="overlay-content">
                                                     <span class="overlay-text">template <i
@@ -2953,7 +2953,7 @@ while($row=$result->fetch_assoc()){
                                                     </a>
                                                 </div>
                                                 <div class="inner">
-                                                    <h3 class="title"><a href="home-web-Developer.html">Web Developer</a></h3>
+                                                    <h3 class="title"><a href="home-web-Developer.php">Web Developer</a></h3>
                                                 </div>
                                             </div>
                                         </div>
@@ -2965,7 +2965,7 @@ while($row=$result->fetch_assoc()){
                                         <div class="single-demo">
                                             <div class="inner">
                                                 <div class="thumbnail">
-                                                    <a href="home-designer.html">
+                                                    <a href="home-designer.php">
                                                         <img class="w-100" src="assets/images/demo/home-video.png" alt="Personal Portfolio">
                                                         <span class="overlay-content">
                                                     <span class="overlay-text">template <i
@@ -2974,7 +2974,7 @@ while($row=$result->fetch_assoc()){
                                                     </a>
                                                 </div>
                                                 <div class="inner">
-                                                    <h3 class="title"><a href="home-designer.html">Designer</a></h3>
+                                                    <h3 class="title"><a href="home-designer.php">Designer</a></h3>
                                                 </div>
                                             </div>
                                         </div>
@@ -2986,7 +2986,7 @@ while($row=$result->fetch_assoc()){
                                         <div class="single-demo">
                                             <div class="inner">
                                                 <div class="thumbnail">
-                                                    <a href="home-content-writer.html">
+                                                    <a href="home-content-writer.php">
                                                         <img class="w-100" src="assets/images/demo/text-rotet.png" alt="Personal Portfolio">
                                                         <span class="overlay-content">
                                                     <span class="overlay-text">template <i
@@ -2995,7 +2995,7 @@ while($row=$result->fetch_assoc()){
                                                     </a>
                                                 </div>
                                                 <div class="inner">
-                                                    <h3 class="title"><a href="home-content-writer.html">Content Writter</a></h3>
+                                                    <h3 class="title"><a href="home-content-writer.php">Content Writter</a></h3>
                                                 </div>
                                             </div>
                                         </div>
@@ -3007,7 +3007,7 @@ while($row=$result->fetch_assoc()){
                                         <div class="single-demo">
                                             <div class="inner">
                                                 <div class="thumbnail">
-                                                    <a href="home-instructor.html">
+                                                    <a href="home-instructor.php">
                                                         <img class="w-100" src="assets/images/demo/index-boxed.png" alt="Personal Portfolio">
                                                         <span class="overlay-content">
                                                     <span class="overlay-text">template <i
@@ -3016,7 +3016,7 @@ while($row=$result->fetch_assoc()){
                                                     </a>
                                                 </div>
                                                 <div class="inner">
-                                                    <h3 class="title"><a href="home-instructor.html">Instructor</a></h3>
+                                                    <h3 class="title"><a href="home-instructor.php">Instructor</a></h3>
                                                 </div>
                                             </div>
                                         </div>
@@ -3028,7 +3028,7 @@ while($row=$result->fetch_assoc()){
                                         <div class="single-demo">
                                             <div class="inner">
                                                 <div class="thumbnail">
-                                                    <a href="home-freelancer.html">
+                                                    <a href="home-freelancer.php">
                                                         <img class="w-100" src="assets/images/demo/home-sticky.png" alt="Personal Portfolio">
                                                         <span class="overlay-content">
                                                     <span class="overlay-text">template <i
@@ -3037,7 +3037,7 @@ while($row=$result->fetch_assoc()){
                                                     </a>
                                                 </div>
                                                 <div class="inner">
-                                                    <h3 class="title"><a href="home-freelancer.html">Freelancer</a></h3>
+                                                    <h3 class="title"><a href="home-freelancer.php">Freelancer</a></h3>
                                                 </div>
                                             </div>
                                         </div>
@@ -3049,7 +3049,7 @@ while($row=$result->fetch_assoc()){
                                         <div class="single-demo">
                                             <div class="inner">
                                                 <div class="thumbnail">
-                                                    <a href="home-photographer.html">
+                                                    <a href="home-photographer.php">
                                                         <img class="w-100" src="assets/images/demo/index-bg-image.png" alt="Personal Portfolio">
                                                         <span class="overlay-content">
                                                     <span class="overlay-text">template <i
@@ -3058,7 +3058,7 @@ while($row=$result->fetch_assoc()){
                                                     </a>
                                                 </div>
                                                 <div class="inner">
-                                                    <h3 class="title"><a href="home-photographer.html">Photographer</a>
+                                                    <h3 class="title"><a href="home-photographer.php">Photographer</a>
                                                     </h3>
                                                 </div>
                                             </div>
@@ -3071,7 +3071,7 @@ while($row=$result->fetch_assoc()){
                                         <div class="single-demo">
                                             <div class="inner">
                                                 <div class="thumbnail">
-                                                    <a href="index-politician.html">
+                                                    <a href="index-politician.php">
                                                         <img class="w-100" src="assets/images/demo/front-end.png" alt="Personal Portfolio">
                                                         <span class="overlay-content">
                                                     <span class="overlay-text">template <i
@@ -3080,7 +3080,7 @@ while($row=$result->fetch_assoc()){
                                                     </a>
                                                 </div>
                                                 <div class="inner">
-                                                    <h3 class="title"><a href="index-politician.html">Politician</a></h3>
+                                                    <h3 class="title"><a href="index-politician.php">Politician</a></h3>
                                                 </div>
                                             </div>
                                         </div>
@@ -3118,7 +3118,7 @@ while($row=$result->fetch_assoc()){
                                         <div class="single-demo">
                                             <div class="inner">
                                                 <div class="thumbnail">
-                                                    <a href="index-white-version.html">
+                                                    <a href="index-white-version.php">
                                                         <img class="w-100" src="assets/images/demo/main-demo.jpg" alt="Personal Portfolio">
                                                         <span class="overlay-content">
                                                     <span class="overlay-text">template <i
@@ -3127,7 +3127,7 @@ while($row=$result->fetch_assoc()){
                                                     </a>
                                                 </div>
                                                 <div class="inner">
-                                                    <h3 class="title"><a href="index-white-version.html">shashikant</a></h3>
+                                                    <h3 class="title"><a href="index-white-version.php">shashikant</a></h3>
                                                 </div>
                                             </div>
                                         </div>
@@ -3139,7 +3139,7 @@ while($row=$result->fetch_assoc()){
                                         <div class="single-demo">
                                             <div class="inner badge-2">
                                                 <div class="thumbnail">
-                                                    <a href="index-technician-white-version.html">
+                                                    <a href="index-technician-white-version.php">
                                                         <img class="w-100" src="assets/images/demo/index-technician-white-version.png" alt="Personal Portfolio">
                                                         <span class="overlay-content">
                                                     <span class="overlay-text">Template <i
@@ -3148,7 +3148,7 @@ while($row=$result->fetch_assoc()){
                                                     </a>
                                                 </div>
                                                 <div class="inner">
-                                                    <h3 class="title"><a href="index-technician-white-version.html">Technician</a></h3>
+                                                    <h3 class="title"><a href="index-technician-white-version.php">Technician</a></h3>
                                                 </div>
                                             </div>
                                         </div>
@@ -3160,7 +3160,7 @@ while($row=$result->fetch_assoc()){
                                         <div class="single-demo">
                                             <div class="inner badge-2">
                                                 <div class="thumbnail">
-                                                    <a href="index-model-white-version.html">
+                                                    <a href="index-model-white-version.php">
                                                         <img class="w-100" src="assets/images/demo/home-model-v2-white.png" alt="Personal Portfolio">
                                                         <span class="overlay-content">
                                                     <span class="overlay-text">template <i
@@ -3169,7 +3169,7 @@ while($row=$result->fetch_assoc()){
                                                     </a>
                                                 </div>
                                                 <div class="inner">
-                                                    <h3 class="title"><a href="index-model-white-version.html">Model</a></h3>
+                                                    <h3 class="title"><a href="index-model-white-version.php">Model</a></h3>
                                                 </div>
                                             </div>
                                         </div>
@@ -3181,7 +3181,7 @@ while($row=$result->fetch_assoc()){
                                         <div class="single-demo">
                                             <div class="inner badge-1">
                                                 <div class="thumbnail">
-                                                    <a href="home-consulting-white-version.html">
+                                                    <a href="home-consulting-white-version.php">
                                                         <img class="w-100" src="assets/images/demo/home-consulting-white-version.png" alt="Personal Portfolio">
                                                         <span class="overlay-content">
                                                     <span class="overlay-text">template <i
@@ -3190,7 +3190,7 @@ while($row=$result->fetch_assoc()){
                                                     </a>
                                                 </div>
                                                 <div class="inner">
-                                                    <h3 class="title"><a href="home-consulting-white-version.html">Consulting</a>
+                                                    <h3 class="title"><a href="home-consulting-white-version.php">Consulting</a>
                                                     </h3>
                                                 </div>
                                             </div>
@@ -3203,7 +3203,7 @@ while($row=$result->fetch_assoc()){
                                         <div class="single-demo">
                                             <div class="inner badge-1">
                                                 <div class="thumbnail">
-                                                    <a href="fashion-designer-white-version.html">
+                                                    <a href="fashion-designer-white-version.php">
                                                         <img class="w-100" src="assets/images/demo/fashion-designer-white-version.png" alt="Personal Portfolio">
                                                         <span class="overlay-content">
                                                     <span class="overlay-text">template <i
@@ -3212,7 +3212,7 @@ while($row=$result->fetch_assoc()){
                                                     </a>
                                                 </div>
                                                 <div class="inner">
-                                                    <h3 class="title"><a href="fashion-designer-white-version.html">Fashion Designer</a>
+                                                    <h3 class="title"><a href="fashion-designer-white-version.php">Fashion Designer</a>
                                                     </h3>
                                                 </div>
                                             </div>
@@ -3225,7 +3225,7 @@ while($row=$result->fetch_assoc()){
                                         <div class="single-demo">
                                             <div class="inner">
                                                 <div class="thumbnail">
-                                                    <a href="index-developer-white-version.html">
+                                                    <a href="index-developer-white-version.php">
                                                         <img class="w-100" src="assets/images/demo/developer-white-version.png" alt="Personal Portfolio">
                                                         <span class="overlay-content">
                                                     <span class="overlay-text">template <i
@@ -3234,7 +3234,7 @@ while($row=$result->fetch_assoc()){
                                                     </a>
                                                 </div>
                                                 <div class="inner">
-                                                    <h3 class="title"><a href="index-developer-white-version.html">Developer</a>
+                                                    <h3 class="title"><a href="index-developer-white-version.php">Developer</a>
                                                     </h3>
                                                 </div>
                                             </div>
@@ -3246,7 +3246,7 @@ while($row=$result->fetch_assoc()){
                                         <div class="single-demo">
                                             <div class="inner">
                                                 <div class="thumbnail">
-                                                    <a href="instructor-fitness-white-version.html">
+                                                    <a href="instructor-fitness-white-version.php">
                                                         <img class="w-100" src="assets/images/demo/instructor-fitness-white-version.png" alt="Personal Portfolio">
                                                         <span class="overlay-content">
                                                     <span class="overlay-text">template <i
@@ -3255,7 +3255,7 @@ while($row=$result->fetch_assoc()){
                                                     </a>
                                                 </div>
                                                 <div class="inner">
-                                                    <h3 class="title"><a href="instructor-fitness-white-version.html">Fitness Instructor</a>
+                                                    <h3 class="title"><a href="instructor-fitness-white-version.php">Fitness Instructor</a>
                                                     </h3>
                                                 </div>
                                             </div>
@@ -3267,7 +3267,7 @@ while($row=$result->fetch_assoc()){
                                         <div class="single-demo">
                                             <div class="inner badge-1">
                                                 <div class="thumbnail">
-                                                    <a href="home-web-developer-white-version.html">
+                                                    <a href="home-web-developer-white-version.php">
                                                         <img class="w-100" src="assets/images/demo/home-model-white-version.png" alt="Personal Portfolio">
                                                         <span class="overlay-content">
                                                     <span class="overlay-text">template <i
@@ -3276,7 +3276,7 @@ while($row=$result->fetch_assoc()){
                                                     </a>
                                                 </div>
                                                 <div class="inner">
-                                                    <h3 class="title"><a href="home-web-developer-white-version.html">Web Developer</a>
+                                                    <h3 class="title"><a href="home-web-developer-white-version.php">Web Developer</a>
                                                     </h3>
                                                 </div>
                                             </div>
@@ -3289,7 +3289,7 @@ while($row=$result->fetch_assoc()){
                                         <div class="single-demo">
                                             <div class="inner">
                                                 <div class="thumbnail">
-                                                    <a href="home-designer-white-version.html">
+                                                    <a href="home-designer-white-version.php">
                                                         <img class="w-100" src="assets/images/demo/home-video-white-version.png" alt="Personal Portfolio">
                                                         <span class="overlay-content">
                                                     <span class="overlay-text">template <i
@@ -3298,7 +3298,7 @@ while($row=$result->fetch_assoc()){
                                                     </a>
                                                 </div>
                                                 <div class="inner">
-                                                    <h3 class="title"><a href="home-designer-white-version.html">Designer</a>
+                                                    <h3 class="title"><a href="home-designer-white-version.php">Designer</a>
                                                     </h3>
                                                 </div>
                                             </div>
@@ -3311,7 +3311,7 @@ while($row=$result->fetch_assoc()){
                                         <div class="single-demo">
                                             <div class="inner">
                                                 <div class="thumbnail">
-                                                    <a href="home-content-writer-white-version.html">
+                                                    <a href="home-content-writer-white-version.php">
                                                         <img class="w-100" src="assets/images/demo/text-rotet-white-version.png" alt="Personal Portfolio">
                                                         <span class="overlay-content">
                                                     <span class="overlay-text">template <i
@@ -3320,7 +3320,7 @@ while($row=$result->fetch_assoc()){
                                                     </a>
                                                 </div>
                                                 <div class="inner">
-                                                    <h3 class="title"><a href="home-content-writer-white-version.html">Content
+                                                    <h3 class="title"><a href="home-content-writer-white-version.php">Content
                                                             Writter</a></h3>
                                                 </div>
                                             </div>
@@ -3333,7 +3333,7 @@ while($row=$result->fetch_assoc()){
                                         <div class="single-demo">
                                             <div class="inner">
                                                 <div class="thumbnail">
-                                                    <a href="home-instructor-white-version.html">
+                                                    <a href="home-instructor-white-version.php">
                                                         <img class="w-100" src="assets/images/demo/index-boxed-white-version.png" alt="Personal Portfolio">
                                                         <span class="overlay-content">
                                                     <span class="overlay-text">template <i
@@ -3342,7 +3342,7 @@ while($row=$result->fetch_assoc()){
                                                     </a>
                                                 </div>
                                                 <div class="inner">
-                                                    <h3 class="title"><a href="home-instructor-white-version.html">Instructor</a></h3>
+                                                    <h3 class="title"><a href="home-instructor-white-version.php">Instructor</a></h3>
                                                 </div>
                                             </div>
                                         </div>
@@ -3354,7 +3354,7 @@ while($row=$result->fetch_assoc()){
                                         <div class="single-demo">
                                             <div class="inner">
                                                 <div class="thumbnail">
-                                                    <a href="home-freelancer-white-version.html">
+                                                    <a href="home-freelancer-white-version.php">
                                                         <img class="w-100" src="assets/images/demo/home-sticky-white-version.png" alt="Personal Portfolio">
                                                         <span class="overlay-content">
                                                     <span class="overlay-text">template <i
@@ -3363,7 +3363,7 @@ while($row=$result->fetch_assoc()){
                                                     </a>
                                                 </div>
                                                 <div class="inner">
-                                                    <h3 class="title"><a href="home-freelancer-white-version.html">Freelancer</a></h3>
+                                                    <h3 class="title"><a href="home-freelancer-white-version.php">Freelancer</a></h3>
                                                 </div>
                                             </div>
                                         </div>
@@ -3375,7 +3375,7 @@ while($row=$result->fetch_assoc()){
                                         <div class="single-demo">
                                             <div class="inner">
                                                 <div class="thumbnail">
-                                                    <a href="home-photographer-white-version.html">
+                                                    <a href="home-photographer-white-version.php">
                                                         <img class="w-100" src="assets/images/demo/index-bg-image-white-version.png" alt="Personal Portfolio">
                                                         <span class="overlay-content">
                                                     <span class="overlay-text">template <i
@@ -3384,7 +3384,7 @@ while($row=$result->fetch_assoc()){
                                                     </a>
                                                 </div>
                                                 <div class="inner">
-                                                    <h3 class="title"><a href="home-photographer-white-version.html">Photographer</a></h3>
+                                                    <h3 class="title"><a href="home-photographer-white-version.php">Photographer</a></h3>
                                                 </div>
                                             </div>
                                         </div>
@@ -3396,7 +3396,7 @@ while($row=$result->fetch_assoc()){
                                         <div class="single-demo">
                                             <div class="inner">
                                                 <div class="thumbnail">
-                                                    <a href="index-politician-white-version.html">
+                                                    <a href="index-politician-white-version.php">
                                                         <img class="w-100" src="assets/images/demo/front-end-white-version.png" alt="Personal Portfolio">
                                                         <span class="overlay-content">
                                                     <span class="overlay-text">template <i
@@ -3405,7 +3405,7 @@ while($row=$result->fetch_assoc()){
                                                     </a>
                                                 </div>
                                                 <div class="inner">
-                                                    <h3 class="title"><a href="index-politician-white-version.html">Politician</a></h3>
+                                                    <h3 class="title"><a href="index-politician-white-version.php">Politician</a></h3>
                                                 </div>
                                             </div>
                                         </div>
@@ -3451,7 +3451,7 @@ while($row=$result->fetch_assoc()){
                             <a href="#"><img src="assets/images/logo/logos-circle.png" width="100%" height="200%" alt="logo-image"></a>
                         </div>
 
-                        <p class="description mt--30">© 2022. All rights reserved by <a target="_blank" href="./index.html">SHASHIKANT.</a></p>
+                        <p class="description mt--30">© 2022. All rights reserved by <a target="_blank" href="./index.php">SHASHIKANT.</a></p>
                     </div>
                 </div>
             </div>
