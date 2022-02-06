@@ -1,3 +1,6 @@
+<?php
+include("../db.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +26,10 @@
   display:none;
   width: 100%;
 }
-
+.message-box{
+  margin-left: 50%;
+  color:white;
+}
 </style>
 </head>
 <body>
@@ -53,6 +59,36 @@
     <div class="topnav">
       <a class="active" >client message's</a>
     </div>
+  <?php
+    if(isset($_REQUEST["page"])){
+      $page = $_REQUEST["page"];
+    }else{
+      $page=0;
+    }
+    $messages = $con->query("Select * from message order by id desc limit 10 offset ".$page*10);
+    while($message=$messages->fetch_assoc()){
+      echo "
+      <div class='message-box'>
+      <b>Name:&emsp;</b>".$message["name"]."<br>
+      <b>IP:&emsp;</b>".$message["ip"]."<br>
+      <b>Time:&emsp;</b>".$message["time"]."<br>
+      <b>Phone:&emsp;</b><a href='tel:".$message["phone"]."'>".$message["phone"]."</a><br>
+      <b>Email:&emsp;</b><a href='mailto:".$message["email"]."'>".$message["email"]."</a><br>
+      <b>Subject:&emsp;</b>".$message["subject"]."<br>
+      <b>Message: </b><br>
+      <code>".$message["message"]."</code>
+      </div> 
+      <hr>
+      ";
+    }
+    if($page > 0){
+      echo "<a href='message.php?page=".($page-1)."'><button id='prev'>Prev</button></a>";
+    }
+    if($con->query("SELECT * FROM message")->num_rows > ($page+1)*10){
+      echo "<a href='message.php?page=".($page+1)."'><button id='next'>Next</button></a>";
+    }
+  ?>
+
 </div>
   </body>
   </html>
