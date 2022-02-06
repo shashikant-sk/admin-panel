@@ -75,9 +75,9 @@ $info=$con->query("Select * from pricing where type='$type'")->fetch_assoc();
     </div>
 </div>
 <div class="topnav">
-    <a href="pricing.php?name=static">Static</a>
-    <a href="pricing.php?name=standard">Standard</a>
-    <a href="pricing.php?name=premimum">Premium</a>
+    <a href="pricing.php?type=static">Static</a>
+    <a href="pricing.php?type=standard">Standard</a>
+    <a href="pricing.php?type=premimum">Premium</a>
   </div>
   <div class="static">
     <i><h1 class="topic-red">MY STATIC PRICING</h1></i><br><br>
