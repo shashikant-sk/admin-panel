@@ -3,8 +3,8 @@ include("../db.php");
 if(!isset($_COOKIE["uname"])){
     header("location: ./loginpage.php");
 }
-$page = $_REQUEST["page"] ?? 1;
-$blog=$con->query("SELECt * from blog where id='$page'")->fetch_assoc();
+$blogno = $_REQUEST["blog"] ?? 1;
+$blog=$con->query("SELECt * from blog where id='$blogno'")->fetch_assoc();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,9 +37,9 @@ $blog=$con->query("SELECt * from blog where id='$page'")->fetch_assoc();
     </div>
     
     <div class="topnav">
-        <a class="active" href="blog.php?page=1">Blog 1</a>
-        <a href="blog.php?page=2">Blog 2</a>
-        <a href="blog.php?page=3">Blog 3</a>
+        <a class="active" href="blog.php?blog=1">Blog 1</a>
+        <a href="blog.php?blog=2">Blog 2</a>
+        <a href="blog.php?glog=3">Blog 3</a>
       </div>
       <div class="divider">   
         <?php
@@ -49,7 +49,7 @@ $blog=$con->query("SELECt * from blog where id='$page'")->fetch_assoc();
           $duration=$_POST["duration"];
           $content=$_POST["content"];
           $date= date("M d, Y");
-          if($con->query("UPDATE blog set topic='$topic', title='$title', duration='$duration', content='$content', date='$date' where id=$page")){
+          if($con->query("UPDATE blog set topic='$topic', title='$title', duration='$duration', content='$content', date='$date' where id=$blogno")){
             echo"<script> alert ('Successful'); </script>";
           }
         }
@@ -66,6 +66,34 @@ $blog=$con->query("SELECt * from blog where id='$page'")->fetch_assoc();
      <div class = "vertical"><br>
       <i><h1 class="topic-red">Message Veiw</h1></i>
       <hr width="220%">
+      <?php
+      if(isset($_REQUEST["page"])){
+      $page = $_REQUEST["page"];
+    }else{
+      $page=0;
+    }
+    $messages = $con->query("Select * from comments where bid='".$blogno."' order by id desc limit 10 offset ".$page*10);
+    while($message=$messages->fetch_assoc()){
+      echo "
+      <div class='message-box'>
+      <b>Name:&emsp;</b>".$message["name"]."<br>
+      <b>IP:&emsp;</b>".$message["ip"]."<br>
+      <b>Time:&emsp;</b>".$message["time"]."<br>
+      <b>WebSite:&emsp;</b><a href='".$message["website"]."'>".$message["website"]."</a><br>
+      <b>Email:&emsp;</b><a href='mailto:".$message["email"]."'>".$message["email"]."</a><br>
+      <b>Comment: </b><br>
+      <code>".$message["comment"]."</code>
+      </div> 
+      <hr>
+      ";
+    }
+    if($page > 0){
+      echo "<a href='blog.php?page=".($page-1)."&blog=".$blogno."'><button id='prev'>Prev</button></a>";
+    }
+    if($con->query("SELECT * FROM comments WHERE bid='$blogno'")->num_rows > ($page+1)*10){
+      echo "<a href='blog.php?page=".($page+1)."&blog=".$blogno."'><button id='next'>Next</button></a>";
+    }
+  ?>
      </div>
 </div>
 </body>
