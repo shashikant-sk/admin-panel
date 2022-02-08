@@ -267,7 +267,17 @@ while($row=$result->fetch_assoc()){
                 <div class="row row--25 mt--10 mt_md--10 mt_sm--10">
 <?php
 $result=$con->query("SELECT * FROM portfolio ORDER BY id");
+$ids = "";
 while($row=$result->fetch_assoc()){
+    $ids = $ids.$row["id"]." ";
+    $pid= $row["id"] ?? 0;
+    $ip = $_SERVER["REMOTE_ADDR"];
+
+    if($con->query("SELECT * FROM likes where ip='$ip' and pid=$pid")->num_rows){
+        $color= "color:red";
+    }else{
+        $color= "color:white";
+    }
 ?>
                     <!-- Start Single Portfolio -->
                     <div data-aos="fade-up" data-aos-delay="100" data-aos-once="true" class="col-lg-6 col-xl-4 col-md-6 col-12 mt--50 mt_md--30 mt_sm--30">
@@ -284,8 +294,8 @@ while($row=$result->fetch_assoc()){
                                             <a><?php echo $row['title']; ?></a>
                                         </div>
                                         <div class="meta">
-                                            <span><a><i class="feather-heart"></i></a>
-                                                600</span>
+                                            <span><a><i data-feather="heart" style="<?php echo $color; ?>" id="heart_<?php echo $row["id"];?>" onclick="like(<?php echo $row["id"]; ?>)">jh</i></a>
+                                                <span id="like_<?php echo $row["id"];?>">600</span></span>
                                         </div>
                                     </div>
                                     <h4 class="title"><a href="<?php echo $row["link"]; ?>"><?php echo $row['tagline']; ?><i
@@ -294,15 +304,50 @@ while($row=$result->fetch_assoc()){
                             </div>
                         </div>
                     </div>
-                    <!-- End Single Portfolio -->
+                     <!-- End Single Portfolio -->
                     <?php } ?>
+                    <script>
+                        function count(id){
+                            var xhttp = new XMLHttpRequest();
+                            xhttp.open("GET", "count.php?pid="+id);
+                            xhttp.onreadystatechange = function() {
+                                if(this.readyState === 4 && this.status === 200) {
+                                    document.getElementById("like_"+id).innerHTML = this.responseText;
+                                }
+                            };
+                            xhttp.send();
+                        }
+                        function ids(id){
+                            var array = id.split(" ");
+                            array.forEach(count);
+                            // array.forEach(like);
+                            setInterval(function(){array.forEach(count);},30000);
+                            
+                        }
+                        function like(id){
+                            // alert("1");
+                            var dom = this;
+                            // document.getElementById("like").setAttribute("style", "background-color:green")
+                            var xhttp = new XMLHttpRequest();
+                            xhttp.open("GET", "likes.php?pid="+id);
+                            xhttp.onreadystatechange = function() {
+                                if(this.readyState === 4 && this.status === 200) {
+                                // alert(this.responseText);
+                                    document.getElementById("heart_"+id).setAttribute("style",this.responseText);
+                                }
+                            };
+                            xhttp.send();
+                            count(id);
+                        }
+                        ids("<?php echo $ids;?>");
+                    </script>
                 </div>
             </div>
         </div>
         <!-- End portfolio Area -->
 
         <!-- Start Resume Area -->
-        <div class="rn-resume-area rn-section-gap section-separator" id="resume">
+        <div class="rn-resume-area rn-section-gap section-separator" id="resume" onload="">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
