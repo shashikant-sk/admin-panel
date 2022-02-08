@@ -1,3 +1,18 @@
+<?php
+include("../db.php");
+if(!isset($_COOKIE["uname"])){
+    header("location: ./loginpage.php");
+}
+if(isset($_POST["change"])){
+  $uname= $_COOKIE["uname"];
+  if($con->query("SELECT * FROM users WHERE uname='$uname' and password='".$_POST["current"]."'")->fetch_assoc()){
+    $con->query("UPDATE users set password = '".$_POST["new"]."' where uname='$uname'");
+    echo "<script>alert('updated'); </script>";
+  }else{
+    echo "<script>alert('Incorrect Password'); </script>";
+  }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,34 +49,40 @@
    
    <div class="form-content">
        <div class="container">
-        <form action="action_page.php">
-          <div class="logout">
-            <p align="right"><button class="button-2" role="button">Logout</button><br><br>
-              <button class="button-2" role="button">Change Password</button></p>
-              </div>
+        <form action="" method="post">
 <label for="pwd"><h3>Current Password:</h3> </label><br><br>
-<input class="inpt" type="password" name="Name" id="name" placeholder="Current Password" maxlength="250" size="40">
+<input class="inpt" type="password" name="current" id="name" placeholder="Current Password" maxlength="250" size="40" required>
 <br><br><br><br>
 <label for="pwd"><h3>New Password:</h3> </label><br><br>
-<input class="inpt" type="password" name="pwd" id="pwd" placeholder="New Password" maxlength="250" size="40">
+<input onkeyup="check()" class="inpt" type="password" name="new" placeholder="New Password" id='new' maxlength="250" size="40" required>
 <br><br><br><br>
 <label for="pwd"><h3>Confirm Password:</h3> </label><br><br>
-<input class="inpt" type="password" name="pwd" id="pwd" placeholder="Confirm Password" maxlength="250" size="40">
+<input onkeyup="check()" class="inpt" type="password" name="rnew" placeholder="Confirm Password" id='rnew' maxlength="250" size="40" required>
 
 <br>
-</form><br><br><br>
-<button type="button" class="button">
+<br><br><br>
+<button type="submit" name="change" id='submit' class="button">
     <span class="button__text">Change</span>
     <span class="button__icon">
       <ion-icon name="cloud-download-outline"></ion-icon>
     </span>
   </button>
   <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
-
+</form>
 
 </div>
 </div>
 </body>
-
+<script>
+  function check(){
+    var n = document.getElementById("new").value;
+    var r = document.getElementById("rnew").value;
+    if(n==r){
+      document.getElementById("submit").setAttribute('type','submit');
+    }else{
+      document.getElementById("submit").setAttribute('type','button');
+    }
+  }
+</script>
 
 </html>

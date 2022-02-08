@@ -1,5 +1,8 @@
 <?php 
 include('../db.php'); 
+if(!isset($_COOKIE["uname"])){
+    header("location: ./loginpage.php");
+}
 if(isset($_POST['save'])){
   $id=$_POST['id'];
   $title=$_POST['title'];

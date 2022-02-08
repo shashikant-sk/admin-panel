@@ -1,5 +1,8 @@
 <?php
 include("../db.php");
+if(!isset($_COOKIE["uname"])){
+    header("location: ./loginpage.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

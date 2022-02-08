@@ -1,5 +1,8 @@
 <?php
 include("../db.php");
+if(!isset($_COOKIE["uname"])){
+    header("location: ./loginpage.php");
+}
 if(isset($_POST["submit"])){
   $link1 = $_POST["link1"];
   $link2 = $_POST["link2"];
