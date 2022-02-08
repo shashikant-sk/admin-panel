@@ -6,6 +6,17 @@ $result= $con->query("SELECT * FROM contact");
 $contact=$result->fetch_assoc();
 $result= $con->query("SELECT * FROM bestskills");
 $best=$result->fetch_assoc();
+if(isset($_POST["send"])){
+    $bid=$_POST["bid"];
+    $name = $_POST["name"];
+    $email = $_POST["email"];
+    $website = $_POST["website"];
+    $comment = $_POST["comment"];
+    $time=date("M d, Y H:i:s");
+    $ip=$_SERVER["REMOTE_ADDR"];
+    $con->query("INSERT INTO comments (bid, name, email, website, comment, time, ip) values ($bid, '$name', '$email', '$website', '$comment', '$time', '$ip')");
+    echo "<script>alert('Comment Sent seucessfully'); </script>";
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -2038,35 +2049,39 @@ while($row=$result->fetch_assoc()){
                     </div>
                 </div>
                 <div class="row row--25 mt--30 mt_md--10 mt_sm--10">
-
+                <?php
+$result=$con->query("SELECT * FROM blog ORDER BY id");
+$ids = "";
+while($row=$result->fetch_assoc()){
+?>
                     <!-- Start Single blog -->
                     <div data-aos="fade-up" data-aos-duration="500" data-aos-delay="400" data-aos-once="true" class="col-lg-6 col-xl-4 mt--30 col-md-6 col-sm-12 col-12 mt--30">
-                        <div class="rn-blog" data-toggle="modal" data-target="#exampleModalCenters1">
+                        <div class="rn-blog" data-toggle="modal" data-target="#exampleModalCenters<?php echo $row["id"]; ?>">
                             <div class="inner">
                                 <div class="thumbnail">
                                     <a href="javascript:void(0)">
-                                        <img src="assets/images/blog/blog-01.jpg" alt="Personal Portfolio Images">
+                                        <img src="assets/images/blog/<?php echo $row["img"]; ?>">
                                     </a>
                                 </div>
                                 <div class="content">
                                     <div class="category-info">
                                         <div class="category-list">
-                                            <a href="javascript:void(0)">Canada</a>
+                                            <a href="javascript:void(0)"><?php echo $row["topic"]; ?></a>
                                         </div>
                                         <div class="meta">
-                                            <span><i class="feather-clock"></i> 2 min read</span>
+                                            <span><i class="feather-clock"></i> <?php echo $row["duration"]; ?></span>
                                         </div>
                                     </div>
-                                    <h4 class="title"><a href="javascript:void(0)">T-shirt design is the part of design
+                                    <h4 class="title"><a href="javascript:void(0)"><?php echo $row["title"]; ?>
                                             <i class="feather-arrow-up-right"></i></a></h4>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!-- End Single blog -->
-
+<?php } ?>
                     <!-- Start Single blog -->
-                    <div data-aos="fade-up" data-aos-duration="500" data-aos-delay="600" data-aos-once="true" class="col-lg-6 col-xl-4 mt--30 col-md-6 col-sm-12 col-12 mt--30">
+                    <!-- <div data-aos="fade-up" data-aos-duration="500" data-aos-delay="600" data-aos-once="true" class="col-lg-6 col-xl-4 mt--30 col-md-6 col-sm-12 col-12 mt--30">
                         <div class="rn-blog" data-toggle="modal" data-target="#exampleModalCenters2">
                             <div class="inner">
                                 <div class="thumbnail">
@@ -2088,11 +2103,11 @@ while($row=$result->fetch_assoc()){
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- End Single blog -->
+                    </div>-->
+                    <!-- End Single blog --> 
 
                     <!-- Start Single blog -->
-                    <div data-aos="fade-up" data-aos-duration="500" data-aos-delay="800" data-aos-once="true" class="col-lg-6 col-xl-4 mt--30 col-md-6 col-sm-12 col-12 mt--30">
+                    <!-- <div data-aos="fade-up" data-aos-duration="500" data-aos-delay="800" data-aos-once="true" class="col-lg-6 col-xl-4 mt--30 col-md-6 col-sm-12 col-12 mt--30">
                         <div class="rn-blog" data-toggle="modal" data-target="#exampleModalCenters3">
                             <div class="inner">
                                 <div class="thumbnail">
@@ -2114,7 +2129,7 @@ while($row=$result->fetch_assoc()){
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- End Single blog -->
 
                 </div>
@@ -2324,8 +2339,13 @@ while($row=$result->fetch_assoc()){
             </div>
         </div>
         <!-- End Modal Portfolio area -->
+        <?php
+$result=$con->query("SELECT * FROM blog ORDER BY id");
+$ids = "";
+while($row=$result->fetch_assoc()){
+?>
         <!-- Modal Blog Body area Start -->
-        <div class="modal fade" id="exampleModalCenters1" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal fade" id="exampleModalCenters<?php echo $row["id"]; ?>" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-news" role="document">
                 <div class="modal-content">
 
@@ -2338,85 +2358,33 @@ while($row=$result->fetch_assoc()){
                     <!-- End of .modal-header -->
 
                     <div class="modal-body">
-                        <img src="assets/images/blog/blog-big-01.jpg" alt="news modal" class="img-fluid modal-feat-img">
+                        <img src="assets/images/blog/<?php echo $row["img"]; ?>" alt="news modal" class="img-fluid modal-feat-img">
                         <div class="news-details">
-                            <span class="date">2 May, 2021</span>
-                            <h2 class="title">Digital Marketo to 1 Their New Office.</h2>
-                            <p>Nobis eleifend option congue nihil imperdiet doming id quod mazim placerat
-                                facer
-                                possim assum.
-                                Typi non
-                                habent claritatem insitam; est usus legentis in iis qui facit eorum
-                                claritatem.
-                                Investigationes
-                                demonstraverunt
-                                lectores legere me lius quod ii legunt saepius. Claritas est etiam processus
-                                dynamicus, qui
-                                sequitur
-                                mutationem consuetudium lectorum.</p>
-                            <h4>Nobis eleifend option conguenes.</h4>
-                            <p>Mauris tempor, orci id pellentesque convallis, massa mi congue eros, sed
-                                posuere
-                                massa nunc quis
-                                dui.
-                                Integer ornare varius mi, in vehicula orci scelerisque sed. Fusce a massa
-                                nisi.
-                                Curabitur sit
-                                amet
-                                suscipit nisl. Sed eget nisl laoreet, suscipit enim nec, viverra eros. Nunc
-                                imperdiet risus
-                                leo,
-                                in rutrum erat dignissim id.</p>
-                            <p>Ut rhoncus vestibulum facilisis. Duis et lorem vitae ligula cursus venenatis.
-                                Class aptent
-                                taciti sociosqu
-                                ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc vitae
-                                nisi
-                                tortor. Morbi
-                                leo
-                                nulla, posuere vel lectus a, egestas posuere lacus. Fusce eleifend hendrerit
-                                bibendum. Morbi
-                                nec
-                                efficitur ex.</p>
-                            <h4>Mauris tempor, orci id pellentesque.</h4>
-                            <p>Nulla non ligula vel nisi blandit egestas vel eget leo. Praesent fringilla
-                                dapibus dignissim.
-                                Pellentesque
-                                quis quam enim. Vestibulum ultrices, leo id suscipit efficitur, odio lorem
-                                rhoncus dolor, a
-                                facilisis
-                                neque mi ut ex. Quisque tempor urna a nisi pretium, a pretium massa
-                                tristique.
-                                Nullam in
-                                aliquam
-                                diam. Maecenas at nibh gravida, ornare eros non, commodo ligula. Sed
-                                efficitur
-                                sollicitudin
-                                auctor.
-                                Quisque nec imperdiet purus, in ornare odio. Quisque odio felis, vestibulum
-                                et.</p>
+                            <span class="date"><?php echo $row["date"]; ?></span>
+                            <h2 class="title"><?php echo $row["title"]; ?></h2>
+                            <?php echo $row["content"]; ?>
                         </div>
-
                         <!-- Comment Section Area Start -->
                         <div class="comment-inner">
                             <h3 class="title mb--40 mt--50">Leave a Reply</h3>
-                            <form action="#">
+                            <form action="" method="POST">
                                 <div class="row">
                                     <div class="col-lg-6 col-md-12 col-12">
-                                        <div class="rnform-group"><input type="text" placeholder="Name">
+                                        <input type="text" name="bid" value='<?php echo $row["id"]; ?>' style="display: none;">
+                                        <div class="rnform-group"><input type="text" name="name" placeholder="Name">
                                         </div>
-                                        <div class="rnform-group"><input type="email" placeholder="Email">
+                                        <div class="rnform-group"><input type="email" name="email" placeholder="Email">
                                         </div>
-                                        <div class="rnform-group"><input type="text" placeholder="Website">
+                                        <div class="rnform-group"><input type="url" name="website" placeholder="Website">
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-12 col-12">
                                         <div class="rnform-group">
-                                            <textarea placeholder="Comment"></textarea>
+                                            <textarea placeholder="Comment" name="comment"></textarea>
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
-                                        <a class="rn-btn" href="#"><span>SUBMIT NOW</span></a>
+                                        <button type="submit" name="send" class="rn-btn"><span>SUBMIT NOW</span></button>
                                     </div>
                                 </div>
                             </form>
@@ -2427,210 +2395,7 @@ while($row=$result->fetch_assoc()){
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="exampleModalCenters2" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-news" role="document">
-                <div class="modal-content">
-
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true"><i data-feather="x"></i></span>
-                        </button>
-                    </div>
-
-                    <!-- End of .modal-header -->
-
-                    <div class="modal-body">
-                        <img src="assets/images/blog/blog-big-02.jpg" alt="news modal" class="img-fluid modal-feat-img">
-                        <div class="news-details">
-                            <span class="date">2 May, 2021</span>
-                            <h2 class="title">Digital Marketo to 2 Their New Office.</h2>
-                            <p>Nobis eleifend option congue nihil imperdiet doming id quod mazim placerat
-                                facer
-                                possim assum.
-                                Typi non
-                                habent claritatem insitam; est usus legentis in iis qui facit eorum
-                                claritatem.
-                                Investigationes
-                                demonstraverunt
-                                lectores legere me lius quod ii legunt saepius. Claritas est etiam processus
-                                dynamicus, qui
-                                sequitur
-                                mutationem consuetudium lectorum.</p>
-                            <h4>Nobis eleifend option conguenes.</h4>
-                            <p>Mauris tempor, orci id pellentesque convallis, massa mi congue eros, sed
-                                posuere
-                                massa nunc quis
-                                dui.
-                                Integer ornare varius mi, in vehicula orci scelerisque sed. Fusce a massa
-                                nisi.
-                                Curabitur sit
-                                amet
-                                suscipit nisl. Sed eget nisl laoreet, suscipit enim nec, viverra eros. Nunc
-                                imperdiet risus
-                                leo,
-                                in rutrum erat dignissim id.</p>
-                            <p>Ut rhoncus vestibulum facilisis. Duis et lorem vitae ligula cursus venenatis.
-                                Class aptent
-                                taciti sociosqu
-                                ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc vitae
-                                nisi
-                                tortor. Morbi
-                                leo
-                                nulla, posuere vel lectus a, egestas posuere lacus. Fusce eleifend hendrerit
-                                bibendum. Morbi
-                                nec
-                                efficitur ex.</p>
-                            <h4>Mauris tempor, orci id pellentesque.</h4>
-                            <p>Nulla non ligula vel nisi blandit egestas vel eget leo. Praesent fringilla
-                                dapibus dignissim.
-                                Pellentesque
-                                quis quam enim. Vestibulum ultrices, leo id suscipit efficitur, odio lorem
-                                rhoncus dolor, a
-                                facilisis
-                                neque mi ut ex. Quisque tempor urna a nisi pretium, a pretium massa
-                                tristique.
-                                Nullam in
-                                aliquam
-                                diam. Maecenas at nibh gravida, ornare eros non, commodo ligula. Sed
-                                efficitur
-                                sollicitudin
-                                auctor.
-                                Quisque nec imperdiet purus, in ornare odio. Quisque odio felis, vestibulum
-                                et.</p>
-                        </div>
-
-                        <!-- Comment Section Area Start -->
-                        <div class="comment-inner">
-                            <h3 class="title mb--40 mt--50">Leave a Reply</h3>
-                            <form action="#">
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-12 col-12">
-                                        <div class="rnform-group"><input type="text" placeholder="Name">
-                                        </div>
-                                        <div class="rnform-group"><input type="email" placeholder="Email">
-                                        </div>
-                                        <div class="rnform-group"><input type="text" placeholder="Website">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-12 col-12">
-                                        <div class="rnform-group">
-                                            <textarea placeholder="Comment"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <a class="rn-btn" href="#"><span>SUBMIT NOW</span></a>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                        <!-- Comment Section End -->
-                    </div>
-                    <!-- End of .modal-body -->
-                </div>
-            </div>
-        </div>
-        <div class="modal fade" id="exampleModalCenters3" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-news" role="document">
-                <div class="modal-content">
-
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true"><i data-feather="x"></i></span>
-                        </button>
-                    </div>
-
-                    <!-- End of .modal-header -->
-
-                    <div class="modal-body">
-                        <img src="assets/images/blog/blog-big-03.jpg" alt="news modal" class="img-fluid modal-feat-img">
-                        <div class="news-details">
-                            <span class="date">2 May, 2021</span>
-                            <h2 class="title">Digital Marketo to 3 Their New Office.</h2>
-                            <p>Nobis eleifend option congue nihil imperdiet doming id quod mazim placerat
-                                facer
-                                possim assum.
-                                Typi non
-                                habent claritatem insitam; est usus legentis in iis qui facit eorum
-                                claritatem.
-                                Investigationes
-                                demonstraverunt
-                                lectores legere me lius quod ii legunt saepius. Claritas est etiam processus
-                                dynamicus, qui
-                                sequitur
-                                mutationem consuetudium lectorum.</p>
-                            <h4>Nobis eleifend option conguenes.</h4>
-                            <p>Mauris tempor, orci id pellentesque convallis, massa mi congue eros, sed
-                                posuere
-                                massa nunc quis
-                                dui.
-                                Integer ornare varius mi, in vehicula orci scelerisque sed. Fusce a massa
-                                nisi.
-                                Curabitur sit
-                                amet
-                                suscipit nisl. Sed eget nisl laoreet, suscipit enim nec, viverra eros. Nunc
-                                imperdiet risus
-                                leo,
-                                in rutrum erat dignissim id.</p>
-                            <p>Ut rhoncus vestibulum facilisis. Duis et lorem vitae ligula cursus venenatis.
-                                Class aptent
-                                taciti sociosqu
-                                ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc vitae
-                                nisi
-                                tortor. Morbi
-                                leo
-                                nulla, posuere vel lectus a, egestas posuere lacus. Fusce eleifend hendrerit
-                                bibendum. Morbi
-                                nec
-                                efficitur ex.</p>
-                            <h4>Mauris tempor, orci id pellentesque.</h4>
-                            <p>Nulla non ligula vel nisi blandit egestas vel eget leo. Praesent fringilla
-                                dapibus dignissim.
-                                Pellentesque
-                                quis quam enim. Vestibulum ultrices, leo id suscipit efficitur, odio lorem
-                                rhoncus dolor, a
-                                facilisis
-                                neque mi ut ex. Quisque tempor urna a nisi pretium, a pretium massa
-                                tristique.
-                                Nullam in
-                                aliquam
-                                diam. Maecenas at nibh gravida, ornare eros non, commodo ligula. Sed
-                                efficitur
-                                sollicitudin
-                                auctor.
-                                Quisque nec imperdiet purus, in ornare odio. Quisque odio felis, vestibulum
-                                et.</p>
-                        </div>
-
-                        <!-- Comment Section Area Start -->
-                        <div class="comment-inner">
-                            <h3 class="title mb--40 mt--50">Leave a Reply</h3>
-                            <form action="#">
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-12 col-12">
-                                        <div class="rnform-group"><input type="text" placeholder="Name">
-                                        </div>
-                                        <div class="rnform-group"><input type="email" placeholder="Email">
-                                        </div>
-                                        <div class="rnform-group"><input type="text" placeholder="Website">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-12 col-12">
-                                        <div class="rnform-group">
-                                            <textarea placeholder="Comment"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <a class="rn-btn" href="#"><span>SUBMIT NOW</span></a>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                        <!-- Comment Section End -->
-                    </div>
-                    <!-- End of .modal-body -->
-                </div>
-            </div>
-        </div>
+        <?php } ?>
         <!-- End Modal Blog area -->
         <!-- Back to  top Start -->
         <div class="backto-top">
