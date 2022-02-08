@@ -1,5 +1,8 @@
 <?php
 include("../db.php");
+if(!isset($_COOKIE["uname"])){
+    header("location: ./loginpage.php");
+}
 if(isset($_REQUEST["type"])){
   $type=$_REQUEST["type"];
 }else{

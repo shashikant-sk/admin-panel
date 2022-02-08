@@ -1,5 +1,8 @@
 <?php
 include("../db.php");
+if(!isset($_COOKIE["uname"])){
+    header("location: ./loginpage.php");
+}
 $page = $_REQUEST["page"] ?? 1;
 $blog=$con->query("SELECt * from blog where id='$page'")->fetch_assoc();
 ?>
