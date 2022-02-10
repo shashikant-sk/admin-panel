@@ -16,7 +16,7 @@ if(isset($_POST['save'])){
   if($_FILES['inpFile']['tmp_name']!=""){
     unlink("../assets/images/testimonial/$img");
     $image = time().$_FILES['inpFile']['name'];
-    move_uploaded_file($_FILES['inpFile']['tmp_name'], "../assets/images/portfolio/$image");
+    move_uploaded_file($_FILES['inpFile']['tmp_name'], "../assets/images/testimonial/$image");
   }else{
     $image = $img;
   }
