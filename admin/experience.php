@@ -58,16 +58,16 @@ if(isset($_POST['addNew'])){
     <div class="sidebar">
         <h2>Admin Panel</h2>
         <ul>    
-            <li><a href="Homepage.html"><i class="fas fa-home"></i>HomePage</a></li>
-            <li><a href="features.html"><i class="fas fa-stroopwafel fa-spin"></i>Features/What I Do</a></li>
-            <li><a href="portfolio.html"><i class="fas fa-project-diagram"></i>portfolio</a></li>
-            <li><a href="resume.html"><i class="fas fa-address-card"></i>My Resume</a></li>
-            <li><a href="testimonial.html"><i class="fas fa-blog"></i>Testimonial</a></li>
-            <li><a href="pricing.html"><i class="fas fa-address-book"></i>My pricing</a></li>
-            <li><a href="blog.html"><i class="fas fa-map-pin"></i>My Blog</a></li>
-            <li><a href="message.html"><i class="fas fa-sms"></i>Veiw Message</a></li>
-            <li><a href="password.html"><i class="fas fa-address-card"></i>Password Change</a></li>
-            <li><a href="#"><i class="fas fa-sign-out-alt fa-spin"></i>LOGOUT</a></li>
+        <li><a href="Homepage.php"><i class="fas fa-home"></i>HomePage</a></li>
+            <li><a href="features.php"><i class="fas fa-stroopwafel fa-spin"></i>Features/What I Do</a></li>
+            <li><a href="portfolio.php"><i class="fas fa-project-diagram"></i>portfolio</a></li>
+            <li><a href="resume.php"><i class="fas fa-address-card"></i>My Resume</a></li>
+            <li><a href="testimonial.php"><i class="fas fa-blog"></i>Testimonial</a></li>
+            <li><a href="pricing.php"><i class="fas fa-address-book"></i>My pricing</a></li>
+            <li><a href="blog.php"><i class="fas fa-map-pin"></i>My Blog</a></li>
+            <li><a href="message.php"><i class="fas fa-sms"></i>Veiw Message</a></li>
+            <li><a href="password.php"><i class="fas fa-address-card"></i>Password Change</a></li>
+            <li><a href="logout.php"><i class="fas fa-sign-out-alt fa-spin"></i>LOGOUT</a></li>
         </ul> 
         <div class="social_media"></div>
       </div>
