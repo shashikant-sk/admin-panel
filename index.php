@@ -2262,7 +2262,7 @@ while($row=$result->fetch_assoc()){
                                     </div>
 
                                     <div class="col-lg-12">
-                                        <input type="submit" name="sumbit" id="">
+                                        
                                         <button name="submit-message" type="submit" id="submit" class="rn-btn">
                                             <span>SEND MESSAGE</span>
                                             <i data-feather="arrow-right"></i>
