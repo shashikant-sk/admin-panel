@@ -2225,7 +2225,7 @@ while($row=$result->fetch_assoc()){
                                         </button>
                                     </div>
                                 </form> -->
-                                <form method="POST">
+                                <form method="POST" class="rnt-contact-form rwt-dynamic-form row" id="contact-form">
                                 <div class="col-lg-6">
                                         <div class="form-group">
                                             <label for="contact-name">Your Name</label>
